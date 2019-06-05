@@ -16,6 +16,11 @@ class Register extends Component {
     });
   };
 
+  registerSubmit = e => {
+    e.preventDefault();
+    this.props.handleRegister;
+  };
+
   render() {
     const { username, password, email, location } = this.state;
     return (
