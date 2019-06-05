@@ -15,6 +15,30 @@ class Login extends Component {
     });
   };
 
+  handleLogin = async e => {
+    const loginCall = await fetch("http://localhost3001/users/login", {
+      method: "POST",
+      credentials: "include",
+      body: JSON.stringify(this.state),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    });
+    const response = await loginCall.json();
+    console.log(response, "<-- response in handleLogin");
+    if (response.user) {
+      localStorage.setItem("user", response.user);
+      this.props.doSetCurrentUser(response.user);
+      this.setState({
+        logged: true
+      });
+    } else {
+      this.setState({
+        message: response.message
+      });
+    }
+  };
+
   render() {
     const { username, password } = this.state;
     return (
