@@ -53,6 +53,8 @@ class Register extends Component {
             value={location}
             onChange={this.changeHandler}
           />
+          <br />
+          <button type="submit">Register</button>
         </form>
       </div>
     );

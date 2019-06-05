@@ -9,6 +9,29 @@ import Register from "./component/Register/Register";
 import * as routes from "./constants/routes";
 
 class App extends Component {
+  handleRegister = async data => {
+    try {
+      const registerCall = await fetch("http://localhost:3001/users/register", {
+        method: "POST",
+        body: JSON.stringify(data),
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json"
+        }
+      });
+      const response = await registerCall.json();
+      console.log(response, "<-- response from registerCall");
+      if (response.message === "success") {
+        this.setState({
+          logged: true,
+          currentUser: response
+        });
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   render() {
     return (
       <div>
