@@ -37,6 +37,7 @@ class Register extends Component {
       const response = await registerCall.json();
       console.log(response, "<-- response from registerCall");
       if (response.user) {
+        localStorage.setItem("current", JSON.stringify(response.user));
         this.props.doSetCurrentUser(response.user);
         this.setState({
           logged: true
