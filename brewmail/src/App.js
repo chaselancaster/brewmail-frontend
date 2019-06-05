@@ -29,7 +29,12 @@ class App extends Component {
             <Route
               exact
               path={routes.REGISTER}
-              render={() => <Register handleRegister={this.handleRegister} />}
+              render={() => (
+                <Register
+                  handleRegister={this.handleRegister}
+                  doSetCurrentUser={this.doSetCurrentUser}
+                />
+              )}
             />
           </Switch>
         </BrowserRouter>
