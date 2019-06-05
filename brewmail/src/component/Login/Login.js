@@ -17,6 +17,7 @@ class Login extends Component {
 
   handleLogin = async e => {
     try {
+      e.preventDefault();
       const loginCall = await fetch("http://localhost3001/users/login", {
         method: "POST",
         credentials: "include",
