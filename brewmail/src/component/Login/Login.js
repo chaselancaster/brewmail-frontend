@@ -20,7 +20,7 @@ class Login extends Component {
       e.preventDefault();
       const loginCall = await fetch("http://localhost:3001/users/login", {
         method: "POST",
-        credentials: "include",
+        // credentials: "include",
         body: JSON.stringify(this.state),
         headers: {
           "Content-Type": "application/json"
