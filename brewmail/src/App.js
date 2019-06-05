@@ -43,7 +43,11 @@ class App extends Component {
         <BrowserRouter>
           <Switch>
             <Route exact path={routes.LANDING} render={() => <Landing />} />
-            <Route exact path={routes.REGISTER} render={() => <Register />} />
+            <Route
+              exact
+              path={routes.REGISTER}
+              render={() => <Register handleRegister={this.handleRegister} />}
+            />
           </Switch>
         </BrowserRouter>
       </div>
