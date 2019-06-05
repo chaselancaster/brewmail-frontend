@@ -5,6 +5,7 @@ import "./App.css";
 // Components
 import Landing from "./component/Landing/Landing";
 import Register from "./component/Register/Register";
+import Login from "./component/Login/Login";
 
 import * as routes from "./constants/routes";
 
