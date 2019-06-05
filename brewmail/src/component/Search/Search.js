@@ -2,24 +2,17 @@ import React, { Component } from "react";
 
 class Search extends Component {
   render() {
-    return this.props.userGames.map((game, i) => {
-      console.log(this.props.userGames, "this.props.userGames");
+    // <h1>This is the search results</h1>;
+    return this.props.searchResults.map((beer, i) => {
+      console.log(this.props.searchResults, "<-- this.props.searchResults");
       return (
         <li key={i}>
-          <span className="gameName">{game.name}</span>
+          <span>{beer.beer.beer_name}</span>
           <br />
           <span>
-            <img src={this.imageHandler(game.box_art_url)} />
+            <img src={beer.beer.beer_label} />
           </span>
           <br />
-          <button
-            onClick={() => {
-              this.props.deleteGame(i);
-            }}
-            className="removeBtn"
-          >
-            Remove Game
-          </button>
         </li>
       );
     });

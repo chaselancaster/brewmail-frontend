@@ -57,9 +57,14 @@ class App extends Component {
       console.log(beerCall, "<-- beerCall in searchBeer function");
       const response = await beerCall.json();
       console.log(response.data, "<-- response in searchBeer function");
-      this.setState({
-        searchResults: response.data.response.beers.items
-      });
+      this.setState(
+        {
+          searchResults: response.data.response.beers.items
+        },
+        () => {
+          this.props.history.push("/search");
+        }
+      );
     } catch (err) {
       console.log(err);
     }
@@ -68,38 +73,34 @@ class App extends Component {
   render() {
     return (
       <div>
-        <BrowserRouter>
-          <NavBar
-            currentUser={this.state.currentUser}
-            doLogout={this.doLogout}
-            changeHandler={this.changeHandler}
-            search={this.state.search}
-            searchBeer={this.searchBeer}
+        <NavBar
+          currentUser={this.state.currentUser}
+          doLogout={this.doLogout}
+          changeHandler={this.changeHandler}
+          search={this.state.search}
+          searchBeer={this.searchBeer}
+        />
+        <Switch>
+          <Route exact path={routes.LANDING} render={() => <Landing />} />
+          <Route
+            exact
+            path={routes.REGISTER}
+            render={() => <Register doSetCurrentUser={this.doSetCurrentUser} />}
           />
-          <Switch>
-            <Route exact path={routes.LANDING} render={() => <Landing />} />
-            <Route
-              exact
-              path={routes.REGISTER}
-              render={() => (
-                <Register doSetCurrentUser={this.doSetCurrentUser} />
-              )}
-            />
-            <Route
-              exact
-              path={routes.LOGIN}
-              render={() => <Login doSetCurrentUser={this.doSetCurrentUser} />}
-            />
-            <Route
-              exact
-              path={routes.SEARCH}
-              render={() => <Search searchResults={this.state.searchResults} />}
-            />
-          </Switch>
-        </BrowserRouter>
+          <Route
+            exact
+            path={routes.LOGIN}
+            render={() => <Login doSetCurrentUser={this.doSetCurrentUser} />}
+          />
+          <Route
+            exact
+            path={routes.SEARCH}
+            render={() => <Search searchResults={this.state.searchResults} />}
+          />
+        </Switch>
       </div>
     );
   }
 }
 
-export default App;
+export default withRouter(App);
