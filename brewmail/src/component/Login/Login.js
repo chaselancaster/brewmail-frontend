@@ -16,26 +16,30 @@ class Login extends Component {
   };
 
   handleLogin = async e => {
-    const loginCall = await fetch("http://localhost3001/users/login", {
-      method: "POST",
-      credentials: "include",
-      body: JSON.stringify(this.state),
-      headers: {
-        "Content-Type": "application/json"
+    try {
+      const loginCall = await fetch("http://localhost3001/users/login", {
+        method: "POST",
+        credentials: "include",
+        body: JSON.stringify(this.state),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      });
+      const response = await loginCall.json();
+      console.log(response, "<-- response in handleLogin");
+      if (response.user) {
+        localStorage.setItem("user", response.user);
+        this.props.doSetCurrentUser(response.user);
+        this.setState({
+          logged: true
+        });
+      } else {
+        this.setState({
+          message: response.message
+        });
       }
-    });
-    const response = await loginCall.json();
-    console.log(response, "<-- response in handleLogin");
-    if (response.user) {
-      localStorage.setItem("user", response.user);
-      this.props.doSetCurrentUser(response.user);
-      this.setState({
-        logged: true
-      });
-    } else {
-      this.setState({
-        message: response.message
-      });
+    } catch (err) {
+      console.log(err);
     }
   };
 
@@ -48,7 +52,7 @@ class Login extends Component {
         ) : (
           <div>
             <h1>This is the Login page</h1>
-            <form onSubmit={e => this.handleRegister(e)}>
+            <form onSubmit={e => this.handleLogin(e)}>
               <h4>Username</h4>
               <input
                 type="text"
