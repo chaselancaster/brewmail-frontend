@@ -32,13 +32,14 @@ class App extends Component {
               exact
               path={routes.REGISTER}
               render={() => (
-                <Register
-                  handleRegister={this.handleRegister}
-                  doSetCurrentUser={this.doSetCurrentUser}
-                />
+                <Register doSetCurrentUser={this.doSetCurrentUser} />
               )}
             />
-            <Route exact path={routes.LOGIN} render={() => <Login />} />
+            <Route
+              exact
+              path={routes.LOGIN}
+              render={() => <Login doSetCurrentUser={this.doSetCurrentUser} />}
+            />
           </Switch>
         </BrowserRouter>
       </div>
