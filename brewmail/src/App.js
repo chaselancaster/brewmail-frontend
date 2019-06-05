@@ -9,7 +9,6 @@ import Login from "./component/Login/Login";
 import NavBar from "./component/NavBar/NavBar";
 
 import * as routes from "./constants/routes";
-import console = require("console");
 
 class App extends Component {
   state = {
@@ -42,25 +41,28 @@ class App extends Component {
 
   searchBeer = async (e, data) => {
     try {
-      e.preventDefault()
-      const beerCall = await fetch(`http://localhost:3001/api/${this.state.search}`, {
-        method: 'GET',
-        credentials: 'include',
-        body: JSON.stringify(data),
-        headers: {
-          "Content-Type": "application/json"
+      e.preventDefault();
+      const beerCall = await fetch(
+        `http://localhost:3001/api/${this.state.search}`,
+        {
+          method: "GET",
+          // credentials: "include",
+          body: JSON.stringify(data),
+          headers: {
+            "Content-Type": "application/json"
+          }
         }
-      })
-      console.log(beerCall, "<-- beerCall in searchBeer function")
-      const response = await beerCall.json()
-      console.log(response, "<-- response in searchBeer function")
+      );
+      console.log(beerCall, "<-- beerCall in searchBeer function");
+      const response = await beerCall.json();
+      console.log(response.data, "<-- response in searchBeer function");
       this.setState({
-        searchResults: response.beers
-      })
+        searchResults: response.data.response.beers.items
+      });
     } catch (err) {
-      console.log(err)
+      console.log(err);
     }
-  }
+  };
 
   render() {
     return (
