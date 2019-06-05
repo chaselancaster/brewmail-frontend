@@ -21,12 +21,12 @@ class Register extends Component {
     this.props.handleRegister(this.state);
   };
 
-  handleRegister = async (e, data) => {
+  handleRegister = async e => {
     try {
       console.log("handleRegister function hit");
       const registerCall = await fetch("http://localhost:3001/users/register", {
         method: "POST",
-        body: JSON.stringify(data),
+        body: JSON.stringify(this.state),
         // credentials: "include",
         headers: {
           "Content-Type": "application/json"
@@ -35,10 +35,10 @@ class Register extends Component {
       console.log("before response");
       const response = await registerCall.json();
       console.log(response, "<-- response from registerCall");
-      if (response.message === "success") {
+      if (response.user) {
+        this.props.doSetCurrentUser(response.user);
         this.setState({
-          logged: true,
-          currentUser: response.user
+          logged: true
         });
       }
     } catch (err) {
@@ -51,7 +51,7 @@ class Register extends Component {
     return (
       <div>
         <h1>This is the Register page</h1>
-        <form onSubmit={this.registerSubmit}>
+        <form onSubmit={e => handleRegister(e)}>
           <h4>Username</h4>
           <input
             type="text"
