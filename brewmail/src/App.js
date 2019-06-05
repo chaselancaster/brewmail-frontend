@@ -16,7 +16,8 @@ class App extends Component {
 
   doSetCurrentUser = user => {
     this.setState({
-      currentUser: user
+      currentUser: user,
+      logged: true
     });
   };
 

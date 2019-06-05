@@ -23,6 +23,7 @@ class Register extends Component {
 
   handleRegister = async e => {
     try {
+      e.preventDefault();
       console.log("handleRegister function hit");
       const registerCall = await fetch("http://localhost:3001/users/register", {
         method: "POST",
@@ -51,7 +52,7 @@ class Register extends Component {
     return (
       <div>
         <h1>This is the Register page</h1>
-        <form onSubmit={e => handleRegister(e)}>
+        <form onSubmit={e => this.handleRegister(e)}>
           <h4>Username</h4>
           <input
             type="text"
