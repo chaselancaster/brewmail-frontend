@@ -9,6 +9,11 @@ import Register from "./component/Register/Register";
 import * as routes from "./constants/routes";
 
 class App extends Component {
+  state = {
+    currentUser: null,
+    logged: false
+  };
+
   handleRegister = async data => {
     try {
       const registerCall = await fetch("http://localhost:3001/users/register", {
