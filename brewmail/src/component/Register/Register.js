@@ -3,6 +3,13 @@ import { Redirect } from "react-router-dom";
 
 class Register extends Component {
   render() {
+    state = {
+      username: "",
+      password: "",
+      email: "",
+      location: "",
+      logged: false
+    };
     return (
       <div>
         <h1>This is the Register page</h1>
