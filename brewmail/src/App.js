@@ -9,12 +9,14 @@ import Login from "./component/Login/Login";
 import NavBar from "./component/NavBar/NavBar";
 
 import * as routes from "./constants/routes";
+import console = require("console");
 
 class App extends Component {
   state = {
     currentUser: null,
     logged: false,
-    search: ""
+    search: "",
+    searchResults: []
   };
 
   changeHandler = e => {
@@ -38,6 +40,28 @@ class App extends Component {
     this.props.history.push(routes.LOGIN);
   };
 
+  searchBeer = async (e, data) => {
+    try {
+      e.preventDefault()
+      const beerCall = await fetch(`http://localhost:3001/api/${this.state.search}`, {
+        method: 'GET',
+        credentials: 'include',
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      })
+      console.log(beerCall, "<-- beerCall in searchBeer function")
+      const response = await beerCall.json()
+      console.log(response, "<-- response in searchBeer function")
+      this.setState({
+        searchResults: response.beers
+      })
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
   render() {
     return (
       <div>
@@ -47,6 +71,7 @@ class App extends Component {
             doLogout={this.doLogout}
             changeHandler={this.changeHandler}
             search={this.state.search}
+            searchBeer={this.searchBeer}
           />
           <Switch>
             <Route exact path={routes.LANDING} render={() => <Landing />} />

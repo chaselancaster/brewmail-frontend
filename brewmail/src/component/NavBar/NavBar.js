@@ -3,12 +3,18 @@ import { NavLink } from "react-router-dom";
 
 import * as routes from "../../constants/routes";
 
-const NavBar = ({ currentUser, doLogout, search, changeHandler }) => (
+const NavBar = ({
+  currentUser,
+  doLogout,
+  search,
+  changeHandler,
+  searchBeer
+}) => (
   <div>
     <NavLink exact to={routes.LANDING}>
       Home
     </NavLink>
-    <form>
+    <form onSubmit={searchBeer}>
       <input
         type="text"
         name="search"
