@@ -1,18 +1,26 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { SearchBar } from "react-native-elements";
 
 import * as routes from "../../constants/routes";
 
-const NavBar = ({ currentUser, doLogout }) => (
+const NavBar = ({ currentUser, doLogout, search, changeHandler }) => (
   <div>
     <NavLink exact to={routes.LANDING}>
       Home
     </NavLink>
+    <form>
+      <input
+        type="text"
+        name="search"
+        value={search}
+        onChange={changeHandler}
+        placeholder="Search for a beer or brewery"
+      />
+    </form>
     <NavLink>Profile</NavLink>
     {currentUser ? (
       <span>
-        <button onClick={doLogout}>Logout</button>
+        <button onClick={this.props.doLogout}>Logout</button>
       </span>
     ) : (
       <NavLink exact to={routes.LOGIN}>

@@ -17,6 +17,12 @@ class App extends Component {
     search: ""
   };
 
+  changeHandler = e => {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  };
+
   doSetCurrentUser = user => {
     this.setState({
       currentUser: user,
@@ -39,6 +45,8 @@ class App extends Component {
           <NavBar
             currentUser={this.state.currentUser}
             doLogout={this.doLogout}
+            changeHandler={this.changeHandler}
+            search={this.state.search}
           />
           <Switch>
             <Route exact path={routes.LANDING} render={() => <Landing />} />
