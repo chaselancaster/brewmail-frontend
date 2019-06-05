@@ -37,6 +37,7 @@ class App extends Component {
                 />
               )}
             />
+            <Route exact path={routes.LOGIN} render={() => <Login />} />
           </Switch>
         </BrowserRouter>
       </div>
