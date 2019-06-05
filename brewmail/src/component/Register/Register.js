@@ -10,6 +10,13 @@ class Register extends Component {
       location: "",
       logged: false
     };
+
+    changeHandler = e => {
+      this.setState({
+        [e.target.name]: e.target.value
+      });
+    };
+
     return (
       <div>
         <h1>This is the Register page</h1>
