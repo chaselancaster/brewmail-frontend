@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { SearchBar } from "react-native-elements";
 
 import * as routes from "../../constants/routes";
 
@@ -20,3 +21,5 @@ const NavBar = ({ currentUser, doLogout }) => (
     )}
   </div>
 );
+
+export default NavBar;

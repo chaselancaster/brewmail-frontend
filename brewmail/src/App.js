@@ -13,7 +13,8 @@ import * as routes from "./constants/routes";
 class App extends Component {
   state = {
     currentUser: null,
-    logged: false
+    logged: false,
+    search: ""
   };
 
   doSetCurrentUser = user => {
@@ -35,7 +36,10 @@ class App extends Component {
     return (
       <div>
         <BrowserRouter>
-          <NavBar currentUser={this.state.currentUser} />
+          <NavBar
+            currentUser={this.state.currentUser}
+            doLogout={this.doLogout}
+          />
           <Switch>
             <Route exact path={routes.LANDING} render={() => <Landing />} />
             <Route
