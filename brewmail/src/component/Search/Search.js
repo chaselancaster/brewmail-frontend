@@ -16,7 +16,7 @@ class Search extends Component {
   render() {
     return (
       <div>
-        <CellarModal />
+        <CellarModal show={this.state.modal} />
         <div>
           {this.props.searchResults.map((beer, i) => {
             return (
