@@ -153,7 +153,12 @@ class Search extends Component {
           handleInputChange={this.handleInputChange}
           addBeer={this.addBeerForTrade}
         />
-        <ISOModal />
+        <ISOModal
+          show={this.state.modal}
+          onClose={this.toggleISOModal}
+          changeHandler={this.changeHandler}
+          handleInputChange={this.handleInputChange}
+        />
         <div>
           {this.props.searchResults.map((beer, i) => {
             return (
