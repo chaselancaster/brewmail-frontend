@@ -14,29 +14,32 @@ class Search extends Component {
   };
 
   render() {
-    return this.props.searchResults.map((beer, i) => {
-      console.log(
-        this.props.searchResults,
-        "<-- this.props.searchResults in Search.js"
-      );
-      return (
-        <li key={i}>
-          <span>
-            <img src={beer.beer.beer_label} />
-          </span>
-          <br />
-          <span>Name: {beer.beer.beer_name}</span>
-          <br />
-          <span>ABV: {beer.beer.beer_abv}</span>
-          <br />
-          <span>Style: {beer.beer.beer_style}</span>
-          <br />
-          <span>Brewed by: {beer.brewery.brewery_name}</span>
-          <br />
-          <button onClick={this.showModal}>+ Cellar</button>
-        </li>
-      );
-    });
+    return (
+      <div>
+        <CellarModal />
+        <div>
+          {this.props.searchResults.map((beer, i) => {
+            return (
+              <li key={i}>
+                <span>
+                  <img src={beer.beer.beer_label} />
+                </span>
+                <br />
+                <span>Name: {beer.beer.beer_name}</span>
+                <br />
+                <span>ABV: {beer.beer.beer_abv}</span>
+                <br />
+                <span>Style: {beer.beer.beer_style}</span>
+                <br />
+                <span>Brewed by: {beer.brewery.brewery_name}</span>
+                <br />
+                <button onClick={this.showModal}>+ Cellar</button>
+              </li>
+            );
+          })}
+        </div>
+      </div>
+    );
   }
 }
 
