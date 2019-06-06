@@ -30,6 +30,12 @@ class Search extends Component {
     });
   };
 
+  toggleISOModal = () => {
+    this.setState({
+      modal: !this.state.modal
+    });
+  };
+
   // Modal to add beer to cellar
   showModal = beer => {
     console.log(beer);
