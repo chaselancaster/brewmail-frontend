@@ -16,7 +16,8 @@ class App extends Component {
     currentUser: null,
     logged: false,
     search: "",
-    searchResults: []
+    searchResults: [],
+    userCellar: []
   };
 
   changeHandler = e => {
