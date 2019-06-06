@@ -16,13 +16,21 @@ class Search extends Component {
     size: "",
     isForTrade: false
   };
-
+  // Toggle for closing when Cellar Modal is open
   toggleModal = () => {
     this.setState({
       modal: !this.state.modal
     });
   };
 
+  toggleForTradeModal = () => {
+    this.setState({
+      modal: !this.state.modal,
+      isForTrade: !this.state.isForTrade
+    });
+  };
+
+  // Modal to add beer to cellar
   showModal = beer => {
     console.log(beer);
     this.toggleModal();
@@ -32,6 +40,20 @@ class Search extends Component {
       beerStyle: beer.beer.beer_style,
       breweryName: beer.brewery.brewery_name,
       label: beer.beer.beer_label
+    });
+  };
+
+  // Modal to add beer to FT
+  showForTradeModal = beer => {
+    console.log(beer);
+    this.toggleForTradeModal();
+    this.setState({
+      beerName: beer.beer.beer_name,
+      beerABV: beer.beer.beer_abv,
+      beerStyle: beer.beer.beer_style,
+      breweryName: beer.brewery.brewery_name,
+      label: beer.beer.beer_label,
+      isForTrade: true
     });
   };
 
@@ -100,7 +122,9 @@ class Search extends Component {
                 <span>Brewed by: {beer.brewery.brewery_name}</span>
                 <br />
                 <button onClick={() => this.showModal(beer)}>+ Cellar</button>
-                <button>+ FT</button>
+                <button onClick={() => this.showForTradeModal(beer)}>
+                  + FT
+                </button>
               </li>
             );
           })}
