@@ -51,20 +51,24 @@ class Search extends Component {
   };
 
   addBeer = async e => {
-    e.preventDefault();
-    this.state.currentUser = this.props.currentUser;
-    const beer = await fetch("http://localhost:3001/beer/add", {
-      method: "POST",
-      // credentials: "include",
-      body: JSON.stringify(this.state),
-      headers: {
-        "Content-Type": "application/json"
+    try {
+      e.preventDefault();
+      this.state.currentUser = this.props.currentUser;
+      const beer = await fetch("http://localhost:3001/beer/add", {
+        method: "POST",
+        // credentials: "include",
+        body: JSON.stringify(this.state),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      });
+      const parsedResponse = await beer.json();
+      console.log(parsedResponse, "<-- parsedResponse in addBeer function");
+      if (parsedResponse.success) {
+        this.props.doSetCurrentUser(parsedResponse.user);
       }
-    });
-    const parsedResponse = await beer.json();
-    console.log(parsedResponse, "<-- parsedResponse in addBeer function");
-    if (parsedResponse.success) {
-      this.props.doSetCurrentUser(parsedResponse.user);
+    } catch (err) {
+      console.log(err);
     }
   };
 
