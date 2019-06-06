@@ -132,6 +132,7 @@ class Search extends Component {
           onClose={this.toggleForTradeModal}
           changeHandler={this.changeHandler}
           handleInputChange={this.handleInputChange}
+          addBeer={this.addBeerForTrade}
         />
         <div>
           {this.props.searchResults.map((beer, i) => {
