@@ -3,6 +3,12 @@ import React, { Component } from "react";
 import CellarModal from "../CellarModal/CellarModal";
 
 class Search extends Component {
+  showModal = () => {
+    this.setState({
+      modal: false
+    });
+  };
+
   render() {
     return this.props.searchResults.map((beer, i) => {
       console.log(this.props.searchResults, "<-- this.props.searchResults");
