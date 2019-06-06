@@ -7,12 +7,19 @@ class Search extends Component {
       console.log(this.props.searchResults, "<-- this.props.searchResults");
       return (
         <li key={i}>
-          <span>{beer.beer.beer_name}</span>
-          <br />
           <span>
             <img src={beer.beer.beer_label} />
           </span>
           <br />
+          <span>Name: {beer.beer.beer_name}</span>
+          <br />
+          <span>ABV: {beer.beer.beer_abv}</span>
+          <br />
+          <span>Style: {beer.beer.beer_style}</span>
+          <br />
+          <span>Brewed by: {beer.brewery.brewery_name}</span>
+          <br />
+          <button>+ Cellar</button>
         </li>
       );
     });
