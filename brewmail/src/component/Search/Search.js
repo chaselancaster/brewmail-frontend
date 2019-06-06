@@ -63,6 +63,18 @@ class Search extends Component {
     });
   };
 
+  showISOModal = beer => {
+    console.log(beer);
+    this.toggleISOModal();
+    this.setState({
+      beerName: beer.beer.beer_name,
+      beerABV: beer.beer.beer_abv,
+      beerStyle: beer.beer.beer_style,
+      breweryName: beer.brewery.brewery_name,
+      label: beer.beer.beer_label
+    });
+  };
+
   changeHandler = e => {
     this.setState({
       [e.target.name]: e.target.value
