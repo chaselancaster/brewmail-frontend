@@ -16,33 +16,22 @@ class Search extends Component {
     isForTrade: false
   };
 
+  toggleModal = () => {
+    this.setState({
+      modal: !this.state.modal
+    });
+  };
+
   showModal = beer => {
     console.log(beer);
+    this.toggleModal();
     this.setState({
-      ...this.state,
-      modal: !this.state.modal,
       beerName: beer.beer.beer_name,
       beerABV: beer.beer.beer_abv,
       beerStyle: beer.beer.beer_style,
       breweryName: beer.brewery.brewery_name,
       label: beer.beer.beer_label
     });
-
-    // this.state.modal
-    //   ? this.setState({
-    //       beerName: beer.beer.beer_name,
-    //       beerABV: beer.beer.beer_abv,
-    //       beerStyle: beer.beer.beer_style,
-    //       breweryName: beer.brewery.brewery_name,
-    //       label: beer.beer.beer_label
-    //     })
-    //   : this.setState({
-    //       beerName: "",
-    //       beerABV: "",
-    //       beerStyle: "",
-    //       breweryName: "",
-    //       label: ""
-    //     });
   };
 
   changeHandler = e => {
@@ -63,6 +52,7 @@ class Search extends Component {
 
   addBeer = async e => {
     e.preventDefault();
+    this.state.currentUser = this.props.currentUser;
     const beer = await fetch("http://localhost:3001/beer/add", {
       method: "POST",
       // credentials: "include",
@@ -83,7 +73,7 @@ class Search extends Component {
       <div>
         <CellarModal
           show={this.state.modal}
-          onClose={this.showModal}
+          onClose={this.toggleModal}
           changeHandler={this.changeHandler}
           handleInputChange={this.handleInputChange}
           addBeer={this.addBeer}
