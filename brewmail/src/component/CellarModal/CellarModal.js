@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 
 class CellarModal extends Component {
+  onClose = e => {
+    this.props.onClose && this.props.onClose(e);
+  };
+
   render() {
     if (!this.props.show) {
       return null;
