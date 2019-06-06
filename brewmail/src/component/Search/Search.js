@@ -73,11 +73,33 @@ class Search extends Component {
     });
   };
 
-  addBeer = async e => {
+  addBeerToCellar = async e => {
     try {
       e.preventDefault();
       this.state.currentUser = this.props.currentUser;
       const beer = await fetch("http://localhost:3001/beer/add", {
+        method: "POST",
+        // credentials: "include",
+        body: JSON.stringify(this.state),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      });
+      const parsedResponse = await beer.json();
+      console.log(parsedResponse, "<-- parsedResponse in addBeer function");
+      if (parsedResponse.success) {
+        this.props.doSetCurrentUser(parsedResponse.user);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  addBeerAsForTrade = async e => {
+    try {
+      e.preventDefault();
+      this.state.currentUser = this.props.currentUser;
+      const beer = await fetch("http://localhost:3001/beer/add/fortrade", {
         method: "POST",
         // credentials: "include",
         body: JSON.stringify(this.state),
@@ -103,7 +125,13 @@ class Search extends Component {
           onClose={this.toggleModal}
           changeHandler={this.changeHandler}
           handleInputChange={this.handleInputChange}
-          addBeer={this.addBeer}
+          addBeer={this.addBeerToCellar}
+        />
+        <ForTradeModal
+          show={this.state.modal}
+          onClose={this.toggleForTradeModal}
+          changeHandler={this.changeHandler}
+          handleInputChange={this.handleInputChange}
         />
         <div>
           {this.props.searchResults.map((beer, i) => {
