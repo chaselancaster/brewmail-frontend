@@ -92,6 +92,7 @@ class Search extends Component {
     });
   };
 
+  // Adding beer into user's cellar
   addBeerToCellar = async e => {
     try {
       e.preventDefault();
@@ -114,11 +115,35 @@ class Search extends Component {
     }
   };
 
+  // Adding beer into user's for trade
   addBeerForTrade = async e => {
     try {
       e.preventDefault();
       this.state.currentUser = this.props.currentUser;
       const beer = await fetch("http://localhost:3001/beer/add/fortrade", {
+        method: "POST",
+        // credentials: "include",
+        body: JSON.stringify(this.state),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      });
+      const parsedResponse = await beer.json();
+      console.log(parsedResponse, "<-- parsedResponse in addBeer function");
+      if (parsedResponse.success) {
+        this.props.doSetCurrentUser(parsedResponse.user);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  // Adding beers into users ISO list
+  addBeerISO = async e => {
+    try {
+      e.preventDefault();
+      this.state.currentUser = this.props.currentUser;
+      const beer = await fetch("http://localhost:3001/beer/add/iso", {
         method: "POST",
         // credentials: "include",
         body: JSON.stringify(this.state),
@@ -158,6 +183,7 @@ class Search extends Component {
           onClose={this.toggleISOModal}
           changeHandler={this.changeHandler}
           handleInputChange={this.handleInputChange}
+          addBeer={this.addBeerISO}
         />
         <div>
           {this.props.searchResults.map((beer, i) => {
