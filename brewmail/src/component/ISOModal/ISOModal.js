@@ -38,7 +38,7 @@ class ISOModal extends Component {
     return (
       <div style={backdropStyle}>
         <div style={modalStyle}>
-          <h2>Add Beer To For Trade</h2>
+          <h2>Add Beer To In Search Of List</h2>
           <div style={footerStyle}>
             <form onSubmit={this.props.addBeer}>
               Quantity:{" "}
@@ -48,21 +48,7 @@ class ISOModal extends Component {
                 onChange={this.props.handleInputChange}
               />
               <br />
-              Year:{" "}
-              <input
-                type="number"
-                name="year"
-                onChange={this.props.handleInputChange}
-              />
-              <br />
-              Size:{" "}
-              <input
-                type="text"
-                name="size"
-                onChange={this.props.handleInputChange}
-              />
-              <br />
-              <button type="submit">Add To For Trade</button>
+              <button type="submit">Add To ISO</button>
             </form>
             <button
               onClick={e => {
