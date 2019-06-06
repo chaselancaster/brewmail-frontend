@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import CellarModal from "../CellarModal/CellarModal";
+import ForTradeModal from "../ForTradeModal/ForTradeModal";
 
 class Search extends Component {
   state = {
