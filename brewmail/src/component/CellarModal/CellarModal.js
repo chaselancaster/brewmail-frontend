@@ -38,8 +38,15 @@ class CellarModal extends Component {
     return (
       <div style={backdropStyle}>
         <div style={modalStyle}>
-          <h2>Cellar Modal</h2>
+          <h2>Add Beer To Cellar</h2>
           <div style={footerStyle}>
+            <form>
+              Quantity: <input type="number" />
+              Year: <input type="number" />
+              Size: <input type="text" />
+              Is this for trade?: <input type="checkbox" />
+              <button type="submit">Add To Cellar</button>
+            </form>
             <button
               onClick={e => {
                 this.onClose(e);
