@@ -21,6 +21,11 @@ const modalStyle = {
   position: "relative"
 };
 
+const footerStyle = {
+  position: "absolute",
+  bottom: 20
+};
+
 class CellarModal extends Component {
   onClose = e => {
     this.props.onClose && this.props.onClose(e);
@@ -31,16 +36,18 @@ class CellarModal extends Component {
       return null;
     }
     return (
-      <div>
-        <h2>Cellar Modal</h2>
-        <div>
-          <button
-            onClick={e => {
-              this.onClose(e);
-            }}
-          >
-            Close
-          </button>
+      <div style={backdropStyle}>
+        <div style={modalStyle}>
+          <h2>Cellar Modal</h2>
+          <div style={footerStyle}>
+            <button
+              onClick={e => {
+                this.onClose(e);
+              }}
+            >
+              Close
+            </button>
+          </div>
         </div>
       </div>
     );
