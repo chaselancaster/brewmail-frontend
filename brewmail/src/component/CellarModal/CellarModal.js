@@ -5,3 +5,5 @@ class CellarModal extends Component {
     return <div>Cellar Modal!</div>;
   }
 }
+
+export default CellarModal;
