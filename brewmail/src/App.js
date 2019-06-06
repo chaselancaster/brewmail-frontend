@@ -82,7 +82,6 @@ class App extends Component {
           search={this.state.search}
           searchBeer={this.searchBeer}
         />
-        <CellarModal />
         <Switch>
           <Route exact path={routes.LANDING} render={() => <Landing />} />
           <Route

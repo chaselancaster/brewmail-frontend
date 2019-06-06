@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 
+import CellarModal from "../CellarModal/CellarModal";
+
 class Search extends Component {
   render() {
-    // <h1>This is the search results</h1>;
     return this.props.searchResults.map((beer, i) => {
       console.log(this.props.searchResults, "<-- this.props.searchResults");
       return (
@@ -19,7 +20,7 @@ class Search extends Component {
           <br />
           <span>Brewed by: {beer.brewery.brewery_name}</span>
           <br />
-          <button>+ Cellar</button>
+          <button onClick={this.showModal}>+ Cellar</button>
         </li>
       );
     });
