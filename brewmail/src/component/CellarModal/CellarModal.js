@@ -9,7 +9,13 @@ class CellarModal extends Component {
       <div>
         <h2>Cellar Modal</h2>
         <div>
-          <button>Close</button>
+          <button
+            onClick={e => {
+              this.onClose(e);
+            }}
+          >
+            Close
+          </button>
         </div>
       </div>
     );
