@@ -26,7 +26,7 @@ const NavBar = ({
     <NavLink>Profile</NavLink>
     {currentUser ? (
       <span>
-        <button onClick={this.props.doLogout}>Logout</button>
+        <button onClick={doLogout}>Logout</button>
       </span>
     ) : (
       <NavLink exact to={routes.LOGIN}>

@@ -27,6 +27,22 @@ class Search extends Component {
       breweryName: beer.brewery.brewery_name,
       label: beer.beer.beer_label
     });
+
+    // this.state.modal
+    //   ? this.setState({
+    //       beerName: beer.beer.beer_name,
+    //       beerABV: beer.beer.beer_abv,
+    //       beerStyle: beer.beer.beer_style,
+    //       breweryName: beer.brewery.brewery_name,
+    //       label: beer.beer.beer_label
+    //     })
+    //   : this.setState({
+    //       beerName: "",
+    //       beerABV: "",
+    //       beerStyle: "",
+    //       breweryName: "",
+    //       label: ""
+    //     });
   };
 
   changeHandler = e => {
@@ -45,6 +61,23 @@ class Search extends Component {
     });
   };
 
+  addBeer = async e => {
+    e.preventDefault();
+    const beer = await fetch("http://localhost:3001/beer/add", {
+      method: "POST",
+      // credentials: "include",
+      body: JSON.stringify(this.state),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    });
+    const parsedResponse = await beer.json();
+    console.log(parsedResponse, "<-- parsedResponse in addBeer function");
+    if (parsedResponse.success) {
+      this.props.doSetCurrentUser(parsedResponse.user);
+    }
+  };
+
   render() {
     return (
       <div>
@@ -53,6 +86,7 @@ class Search extends Component {
           onClose={this.showModal}
           changeHandler={this.changeHandler}
           handleInputChange={this.handleInputChange}
+          addBeer={this.addBeer}
         />
         <div>
           {this.props.searchResults.map((beer, i) => {

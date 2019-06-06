@@ -96,7 +96,12 @@ class App extends Component {
           <Route
             exact
             path={routes.SEARCH}
-            render={() => <Search searchResults={this.state.searchResults} />}
+            render={() => (
+              <Search
+                searchResults={this.state.searchResults}
+                doSetCurrentUser={this.doSetCurrentUser}
+              />
+            )}
           />
         </Switch>
       </div>

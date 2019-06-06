@@ -40,7 +40,7 @@ class CellarModal extends Component {
         <div style={modalStyle}>
           <h2>Add Beer To Cellar</h2>
           <div style={footerStyle}>
-            <form>
+            <form onSubmit={this.props.addBeer}>
               Quantity:{" "}
               <input
                 type="number"
