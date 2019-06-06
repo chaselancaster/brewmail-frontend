@@ -41,10 +41,34 @@ class CellarModal extends Component {
           <h2>Add Beer To Cellar</h2>
           <div style={footerStyle}>
             <form>
-              Quantity: <input type="number" />
-              Year: <input type="number" />
-              Size: <input type="text" />
-              Is this for trade?: <input type="checkbox" />
+              Quantity:{" "}
+              <input
+                type="number"
+                name="quantity"
+                onChange={this.props.handleInputChange}
+              />
+              <br />
+              Year:{" "}
+              <input
+                type="number"
+                name="year"
+                onChange={this.props.handleInputChange}
+              />
+              <br />
+              Size:{" "}
+              <input
+                type="text"
+                name="size"
+                onChange={this.props.handleInputChange}
+              />
+              <br />
+              Is this for trade?:{" "}
+              <input
+                type="checkbox"
+                onChange={this.props.handleInputChange}
+                name="isForTrade"
+              />
+              <br />
               <button type="submit">Add To Cellar</button>
             </form>
             <button
