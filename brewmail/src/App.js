@@ -100,6 +100,7 @@ class App extends Component {
               <Search
                 searchResults={this.state.searchResults}
                 doSetCurrentUser={this.doSetCurrentUser}
+                currentUser={this.state.currentUser}
               />
             )}
           />
