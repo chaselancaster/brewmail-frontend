@@ -99,6 +99,7 @@ class Search extends Component {
                 <span>Brewed by: {beer.brewery.brewery_name}</span>
                 <br />
                 <button onClick={() => this.showModal(beer)}>+ Cellar</button>
+                <button>+ FT</button>
               </li>
             );
           })}
