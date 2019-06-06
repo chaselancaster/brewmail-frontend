@@ -95,7 +95,7 @@ class Search extends Component {
     }
   };
 
-  addBeerAsForTrade = async e => {
+  addBeerForTrade = async e => {
     try {
       e.preventDefault();
       this.state.currentUser = this.props.currentUser;
