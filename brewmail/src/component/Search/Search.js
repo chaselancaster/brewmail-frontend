@@ -21,7 +21,11 @@ class Search extends Component {
     this.setState({
       ...this.state,
       modal: !this.state.modal,
-      beerName: beer.beer_name
+      beerName: beer.beer.beer_name,
+      beerABV: beer.beer.beer_abv,
+      beerStyle: beer.beer.beer_style,
+      breweryName: beer.brewery.brewery_name,
+      label: beer.beer.beer_label
     });
   };
 
@@ -66,9 +70,7 @@ class Search extends Component {
                 <br />
                 <span>Brewed by: {beer.brewery.brewery_name}</span>
                 <br />
-                <button onClick={() => this.showModal(beer.beer)}>
-                  + Cellar
-                </button>
+                <button onClick={() => this.showModal(beer)}>+ Cellar</button>
               </li>
             );
           })}
