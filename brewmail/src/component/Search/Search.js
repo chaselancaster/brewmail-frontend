@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 import CellarModal from "../CellarModal/CellarModal";
 import ForTradeModal from "../ForTradeModal/ForTradeModal";
+import ISOModal from "../ISOModal/ISOModal";
 
 class Search extends Component {
   state = {
