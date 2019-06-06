@@ -9,7 +9,8 @@ class Search extends Component {
 
   showModal = () => {
     this.setState({
-      modal: true
+      ...this.state,
+      modal: !this.state.modal
     });
   };
 
