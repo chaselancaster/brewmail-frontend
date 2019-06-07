@@ -196,7 +196,7 @@ class Search extends Component {
                 <br />
                 <span>Name: {beer.beer.beer_name}</span>
                 <br />
-                <span>ABV: {beer.beer.beer_abv}</span>
+                <span>ABV: {beer.beer.beer_abv}%</span>
                 <br />
                 <span>Style: {beer.beer.beer_style}</span>
                 <br />

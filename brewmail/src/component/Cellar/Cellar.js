@@ -15,7 +15,7 @@ class Cellar extends Component {
                 <br />
                 <span>Name: {beer.beerName}</span>
                 <br />
-                <span>ABV: {beer.beerABV}</span>
+                <span>ABV: {beer.beerABV}%</span>
                 <br />
                 <span>Style: {beer.beerStyle}</span>
                 <br />
