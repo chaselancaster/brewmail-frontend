@@ -60,7 +60,8 @@ class App extends Component {
       console.log(response.data, "<-- response in searchBeer function");
       this.setState(
         {
-          searchResults: response.data.response.beers.items
+          searchResults: response.data.response.beers.items,
+          search: ""
         },
         () => {
           this.props.history.push("/search");

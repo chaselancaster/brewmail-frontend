@@ -205,6 +205,7 @@ class Search extends Component {
                 <button onClick={() => this.showForTradeModal(beer)}>
                   + FT
                 </button>
+                <button onClick={() => this.showISOModal(beer)}>+ ISO</button>
               </li>
             );
           })}
