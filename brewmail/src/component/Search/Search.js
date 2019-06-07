@@ -18,7 +18,7 @@ class Search extends Component {
     isForTrade: false
   };
   // Toggle for closing when Cellar Modal is open
-  toggleModal = () => {
+  toggleCellarModal = () => {
     this.setState({
       modal: !this.state.modal
     });
@@ -38,9 +38,9 @@ class Search extends Component {
   };
 
   // Modal to add beer to cellar
-  showModal = beer => {
+  showCellarModal = beer => {
     console.log(beer);
-    this.toggleModal();
+    this.toggleCellarModal();
     this.setState({
       beerName: beer.beer.beer_name,
       beerABV: beer.beer.beer_abv,
@@ -167,7 +167,7 @@ class Search extends Component {
       <div>
         <CellarModal
           show={this.state.modal}
-          onClose={this.toggleModal}
+          onClose={this.toggleCellarModal}
           changeHandler={this.changeHandler}
           handleInputChange={this.handleInputChange}
           addBeer={this.addBeerToCellar}
@@ -202,7 +202,9 @@ class Search extends Component {
                 <br />
                 <span>Brewed by: {beer.brewery.brewery_name}</span>
                 <br />
-                <button onClick={() => this.showModal(beer)}>+ Cellar</button>
+                <button onClick={() => this.showCellarModal(beer)}>
+                  + Cellar
+                </button>
                 <button onClick={() => this.showForTradeModal(beer)}>
                   + FT
                 </button>
