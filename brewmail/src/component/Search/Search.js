@@ -6,7 +6,9 @@ import ISOModal from "../ISOModal/ISOModal";
 
 class Search extends Component {
   state = {
-    modal: false,
+    cellarModal: false,
+    forTradeModal: false,
+    isoModal: false,
     beerName: "",
     beerABV: "",
     beerStyle: "",
@@ -20,20 +22,20 @@ class Search extends Component {
   // Toggle for closing when Cellar Modal is open
   toggleCellarModal = () => {
     this.setState({
-      modal: !this.state.modal
+      cellarModal: !this.state.cellarModal
     });
   };
 
   toggleForTradeModal = () => {
     this.setState({
-      modal: !this.state.modal,
+      forTradeModal: !this.state.forTradeModal,
       isForTrade: !this.state.isForTrade
     });
   };
 
   toggleISOModal = () => {
     this.setState({
-      modal: !this.state.modal
+      isoModal: !this.state.isoModal
     });
   };
 
@@ -166,21 +168,21 @@ class Search extends Component {
     return (
       <div>
         <CellarModal
-          show={this.state.modal}
+          show={this.state.cellarModal}
           onClose={this.toggleCellarModal}
           changeHandler={this.changeHandler}
           handleInputChange={this.handleInputChange}
           addBeer={this.addBeerToCellar}
         />
         <ForTradeModal
-          show={this.state.modal}
+          show={this.state.forTradeModal}
           onClose={this.toggleForTradeModal}
           changeHandler={this.changeHandler}
           handleInputChange={this.handleInputChange}
           addBeer={this.addBeerForTrade}
         />
         <ISOModal
-          show={this.state.modal}
+          show={this.state.isoModal}
           onClose={this.toggleISOModal}
           changeHandler={this.changeHandler}
           handleInputChange={this.handleInputChange}
