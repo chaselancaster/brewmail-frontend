@@ -149,6 +149,16 @@ class App extends Component {
               />
             )}
           />
+          <Route
+            exact
+            path={routes.MATCHES}
+            render={() => (
+              <Matches
+                userISO={this.state.userISO}
+                usersTradingBeer={this.state.usersTradingBeer}
+              />
+            )}
+          />
         </Switch>
       </div>
     );
