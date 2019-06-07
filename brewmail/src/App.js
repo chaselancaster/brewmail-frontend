@@ -80,32 +80,6 @@ class App extends Component {
     }
   };
 
-  // Find matches call
-  findUsersTradingBeer = async e => {
-    try {
-      e.preventDefault();
-      const matchCall = await fetch(
-        `http://localhost:3001/beer/matches/${this.state.currentUser._id}`,
-        {
-          method: "GET",
-          // credentials: "include",
-          // body: JSON.stringify(this.state),
-          headers: {
-            "Content-Type": "application/json"
-          }
-        }
-      );
-      console.log(matchCall, "<-- matchCall in findMatches function");
-      const response = await matchCall.json();
-      console.log(response.data, "<-- response in findMatches function");
-      this.setState({
-        usersTradingBeer: response.allUsers
-      });
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
   render() {
     return (
       <div>
