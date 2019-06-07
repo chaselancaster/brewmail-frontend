@@ -80,7 +80,7 @@ class App extends Component {
   };
 
   // Find matches call
-  findMatches = async e => {
+  findUsersTradingBeer = async e => {
     try {
       e.preventDefault();
       const matchCall = await fetch(
