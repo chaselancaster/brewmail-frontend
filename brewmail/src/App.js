@@ -19,7 +19,9 @@ class App extends Component {
     search: "",
     searchResults: [],
     userCellar: [],
-    userISO: []
+    userISO: [],
+    usersTradingBeer: [],
+    matches: []
   };
 
   changeHandler = e => {
@@ -45,6 +47,7 @@ class App extends Component {
     this.props.history.push(routes.LOGIN);
   };
 
+  // Search for a beer or brewery
   searchBeer = async (e, data) => {
     try {
       e.preventDefault();
@@ -76,9 +79,38 @@ class App extends Component {
     }
   };
 
+  // Find matches call
+  findMatches = async e => {
+    try {
+      e.preventDefault();
+      const matchCall = await fetch(
+        `http://localhost:3001/beer/matches/${this.state.userISO}`,
+        {
+          method: "GET",
+          // credentials: "include",
+          // body: JSON.stringify(this.state.userISO),
+          headers: {
+            "Content-Type": "application/json"
+          }
+        }
+      );
+      console.log(matchCall, "<-- matchCall in findMatches function");
+      const response = await matchCall.json();
+      console.log(response.data, "<-- response in findMatches function");
+      this.setState({
+        matches: response
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   render() {
     return (
       <div>
+        <button type="submit" onClick={this.findMatches}>
+          Find Matches
+        </button>
         <NavBar
           currentUser={this.state.currentUser}
           doLogout={this.doLogout}
