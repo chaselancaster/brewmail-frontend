@@ -108,6 +108,7 @@ class Search extends Component {
       const parsedResponse = await beer.json();
       console.log(parsedResponse, "<-- parsedResponse in addBeer function");
       if (parsedResponse.success) {
+        // calling function that is going to set user again with updated beer
         this.props.doSetCurrentUser(parsedResponse.user);
       }
     } catch (err) {

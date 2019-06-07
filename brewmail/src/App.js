@@ -30,7 +30,8 @@ class App extends Component {
   doSetCurrentUser = user => {
     this.setState({
       currentUser: user,
-      logged: true
+      logged: true,
+      userCellar: user.cellarBeer
     });
   };
 
