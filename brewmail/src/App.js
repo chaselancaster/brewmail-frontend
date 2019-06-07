@@ -8,6 +8,7 @@ import Register from "./component/Register/Register";
 import Login from "./component/Login/Login";
 import NavBar from "./component/NavBar/NavBar";
 import Search from "./component/Search/Search";
+import Cellar from "./component/Cellar/Cellar";
 
 import * as routes from "./constants/routes";
 
