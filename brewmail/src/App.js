@@ -9,6 +9,7 @@ import Login from "./component/Login/Login";
 import NavBar from "./component/NavBar/NavBar";
 import Search from "./component/Search/Search";
 import Cellar from "./component/Cellar/Cellar";
+import Matches from "./component/Matches/Matches";
 
 import * as routes from "./constants/routes";
 
