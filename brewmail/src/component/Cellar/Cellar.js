@@ -2,6 +2,9 @@ import React, { Component } from "react";
 
 class Cellar extends Component {
   render() {
+    if (!this.props.currentUser) {
+      return <h1>Please Login to see Cellar!</h1>;
+    }
     return (
       <div>
         <h1>Cellar List </h1>
