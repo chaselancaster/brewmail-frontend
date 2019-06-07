@@ -106,6 +106,7 @@ class App extends Component {
               />
             )}
           />
+          <Route exact path={routes.CELLAR} render={() => <Cellar />} />
         </Switch>
       </div>
     );
