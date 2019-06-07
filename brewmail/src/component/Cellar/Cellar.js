@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 class Cellar extends Component {
-  rrender() {
+  render() {
     return (
       <div>
         <h1>Cellar List </h1>
@@ -10,16 +10,16 @@ class Cellar extends Component {
             return (
               <li key={i}>
                 <span>
-                  <img src={beer.beer_label} />
+                  <img src={beer.label} />
                 </span>
                 <br />
-                <span>Name: {beer.beer_name}</span>
+                <span>Name: {beer.beerName}</span>
                 <br />
-                <span>ABV: {beer.beer_abv}</span>
+                <span>ABV: {beer.beerABV}</span>
                 <br />
-                <span>Style: {beer.beer_style}</span>
+                <span>Style: {beer.beerStyle}</span>
                 <br />
-                <span>Brewed by: {beer.brewery_name}</span>
+                <span>Brewed by: {beer.breweryName}</span>
                 <br />
                 <button>Remove Beer</button>
                 <button>Edit Beer</button>
