@@ -112,7 +112,12 @@ class App extends Component {
           <Route
             exact
             path={routes.CELLAR}
-            render={() => <Cellar userCellar={this.state.userCellar} />}
+            render={() => (
+              <Cellar
+                userCellar={this.state.userCellar}
+                currentUser={this.state.currentUser}
+              />
+            )}
           />
         </Switch>
       </div>
