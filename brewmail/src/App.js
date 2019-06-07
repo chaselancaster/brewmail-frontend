@@ -32,7 +32,8 @@ class App extends Component {
     this.setState({
       currentUser: user,
       logged: true,
-      userCellar: user.cellarBeer
+      userCellar: user.cellarBeer,
+      userISO: user.isoBeer
     });
   };
 
@@ -108,7 +109,11 @@ class App extends Component {
               />
             )}
           />
-          <Route exact path={routes.CELLAR} render={() => <Cellar />} />
+          <Route
+            exact
+            path={routes.CELLAR}
+            render={() => <Cellar userCellar={this.state.userCellar} />}
+          />
         </Switch>
       </div>
     );
