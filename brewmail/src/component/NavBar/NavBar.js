@@ -23,6 +23,9 @@ const NavBar = ({
         placeholder="Search for a beer or brewery"
       />
     </form>
+    <NavLink exact to={routes.CELLAR}>
+      Cellar
+    </NavLink>
     <NavLink>Profile</NavLink>
     {currentUser ? (
       <span>
