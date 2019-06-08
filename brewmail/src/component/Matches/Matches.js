@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import MatchesResults from "../MatchesResults/MatchesResults";
+
 class Matches extends Component {
   state = {
     search: "",
@@ -54,6 +56,7 @@ class Matches extends Component {
             placeholder="Search for a beer you want!"
           />
         </form>
+        <MatchesResults users={this.state.users} />
       </div>
     );
   }
