@@ -25,7 +25,8 @@ class Matches extends Component {
       const response = await matchCall.json();
       console.log(response.data, "<-- response in findMatches function");
       this.setState({
-        users: response.allUsers
+        users: response.allUsers,
+        search: ""
       });
     } catch (err) {
       console.log(err);
