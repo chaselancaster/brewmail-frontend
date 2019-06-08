@@ -8,8 +8,17 @@ class MatchesResults extends Component {
     user2Address: "",
     createdBy: {},
     tradingPartner: {},
-    isComplete: false
+    isComplete: false,
+    message: ""
   };
+
+  initiateTrade = partner => {
+    console.log(partner, "<-- initial trade partner");
+    let currentUser = this.props.currentUser;
+    console.log(currentUser, "<-- currentUser from props");
+    // this.setState();
+  };
+
   render() {
     return (
       <div>
@@ -27,7 +36,9 @@ class MatchesResults extends Component {
                 <br />
                 <span># of Beer ISO: {user.isoBeer.length}</span>
                 <br />
-                <button>Trade</button>
+                <button onClick={() => this.initiateTrade(user)}>
+                  Initiate Trade
+                </button>
               </li>
             );
           })}

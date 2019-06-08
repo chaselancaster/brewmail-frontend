@@ -5,8 +5,7 @@ import MatchesResults from "../MatchesResults/MatchesResults";
 class Matches extends Component {
   state = {
     search: "",
-    users: [],
-    message: ""
+    users: []
   };
 
   // Find users trading call
@@ -57,7 +56,10 @@ class Matches extends Component {
             placeholder="Search for a beer you want!"
           />
         </form>
-        <MatchesResults users={this.state.users} />
+        <MatchesResults
+          users={this.state.users}
+          currentUser={this.props.currentUser}
+        />
       </div>
     );
   }
