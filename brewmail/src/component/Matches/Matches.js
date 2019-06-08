@@ -10,8 +10,8 @@ class Matches extends Component {
   findUsersTradingBeer = async (e, data) => {
     try {
       e.preventDefault();
-      const matchCall = await fetch(
-        `http://localhost:3001/beer/matches/${this.state.serach}`,
+      const beerCall = await fetch(
+        `http://localhost:3001/beer/matches/${this.state.search}`,
         {
           method: "GET",
           // credentials: "include",
@@ -21,9 +21,9 @@ class Matches extends Component {
           }
         }
       );
-      console.log(matchCall, "<-- matchCall in findMatches function");
-      const response = await matchCall.json();
-      console.log(response.data, "<-- response in findMatches function");
+      console.log(beerCall, "<-- beerCall in searchBeer function");
+      const response = await beerCall.json();
+      console.log(response.data, "<-- response in searchBeer function");
       this.setState({
         users: response.allUsers,
         search: ""
@@ -45,11 +45,11 @@ class Matches extends Component {
     return (
       <div>
         <h1>This is the matches page</h1>
-        <form>
+        <form onSubmit={this.findUsersTradingBeer}>
           <input
             type="text"
             name="search"
-            vale={this.state.search}
+            value={this.state.search}
             onChange={this.changeHandler}
             placeholder="Search for a beer you want!"
           />
