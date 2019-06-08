@@ -5,7 +5,8 @@ import MatchesResults from "../MatchesResults/MatchesResults";
 class Matches extends Component {
   state = {
     search: "",
-    users: []
+    users: [],
+    message: ""
   };
 
   // Find users trading call
