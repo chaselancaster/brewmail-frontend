@@ -1,6 +1,15 @@
 import React, { Component } from "react";
 
 class MatchesResults extends Component {
+  state = {
+    user1Beer: [],
+    user2Beer: [],
+    user1Address: "",
+    user2Address: "",
+    createdBy: {},
+    tradingPartner: {},
+    isComplete: false
+  };
   render() {
     return (
       <div>
@@ -18,7 +27,6 @@ class MatchesResults extends Component {
                 <br />
                 <span># of Beer ISO: {user.isoBeer.length}</span>
                 <br />
-                <button>View User's Beer</button>
                 <button>Trade</button>
               </li>
             );
