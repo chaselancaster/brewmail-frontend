@@ -11,7 +11,7 @@ class Matches extends Component {
     try {
       e.preventDefault();
       const matchCall = await fetch(
-        `http://localhost:3001/beer/matches/${this.state.currentUser._id}`,
+        `http://localhost:3001/beer/matches/${this.state.serach}`,
         {
           method: "GET",
           // credentials: "include",
