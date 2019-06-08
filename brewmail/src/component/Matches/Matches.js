@@ -6,8 +6,8 @@ class Matches extends Component {
     users: []
   };
 
-  // Find matches call
-  findUsersTradingBeer = async e => {
+  // Find users trading call
+  findUsersTradingBeer = async (e, data) => {
     try {
       e.preventDefault();
       const matchCall = await fetch(
@@ -15,7 +15,7 @@ class Matches extends Component {
         {
           method: "GET",
           // credentials: "include",
-          // body: JSON.stringify(this.state),
+          body: JSON.stringify(data),
           headers: {
             "Content-Type": "application/json"
           }
@@ -42,6 +42,7 @@ class Matches extends Component {
           <input
             type="text"
             name="search"
+            vale={this.state.search}
             placeholder="Search for a beer you want!"
           />
         </form>
