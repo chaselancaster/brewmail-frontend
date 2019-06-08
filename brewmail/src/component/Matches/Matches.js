@@ -49,6 +49,7 @@ class Matches extends Component {
             type="text"
             name="search"
             vale={this.state.search}
+            onChange={this.changeHandler}
             placeholder="Search for a beer you want!"
           />
         </form>
