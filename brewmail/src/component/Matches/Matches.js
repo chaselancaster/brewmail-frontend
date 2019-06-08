@@ -32,6 +32,12 @@ class Matches extends Component {
     }
   };
 
+  changeHandler = e => {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  };
+
   render() {
     console.log(this.props.userISO, "<-- this.props.userISO");
     console.log(this.props.usersTradingBeer, "<-- this.props.usersTradingBeer");
