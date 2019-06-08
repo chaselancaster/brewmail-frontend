@@ -9,3 +9,5 @@ class MatchesResults extends Component {
     );
   }
 }
+
+export default MatchesResults;
