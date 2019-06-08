@@ -16,7 +16,10 @@ class MatchesResults extends Component {
     console.log(partner, "<-- initial trade partner");
     let currentUser = this.props.currentUser;
     console.log(currentUser, "<-- currentUser from props");
-    // this.setState();
+    this.setState({
+      createdBy: currentUser,
+      tradingPartner: partner
+    });
   };
 
   render() {
@@ -32,7 +35,7 @@ class MatchesResults extends Component {
                 <br />
                 <span>Cellar Count: {user.cellarBeer.length}</span>
                 <br />
-                <span># of Beer For Trade: {user.ftBeer.length}</span>
+                {/* <span># of Beer For Trade: {user.ftBeer.length}</span> */}
                 <br />
                 <span># of Beer ISO: {user.isoBeer.length}</span>
                 <br />
