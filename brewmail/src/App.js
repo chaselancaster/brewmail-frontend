@@ -133,6 +133,7 @@ class App extends Component {
               <Matches
                 userISO={this.state.userISO}
                 usersTradingBeer={this.state.usersTradingBeer}
+                currentUser={this.state.currentUser}
               />
             )}
           />
