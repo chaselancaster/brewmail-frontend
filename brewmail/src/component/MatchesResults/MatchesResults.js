@@ -16,11 +16,18 @@ class MatchesResults extends Component {
 
   initiateTrade = partner => {
     console.log(partner, "<-- initial trade partner");
+    this.toggleCellarModal();
     let currentUser = this.props.currentUser;
     console.log(currentUser, "<-- currentUser from props");
     this.setState({
       createdBy: currentUser,
       tradingPartner: partner
+    });
+  };
+
+  toggleCellarModal = () => {
+    this.setState({
+      tradeModal: !this.state.tradeModal
     });
   };
 
