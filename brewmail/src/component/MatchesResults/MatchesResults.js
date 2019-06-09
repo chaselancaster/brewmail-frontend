@@ -41,6 +41,11 @@ class MatchesResults extends Component {
     });
   };
 
+  // Adds the user beers that they are offering to trade in the user1Beer array
+  onCheckCurrentUser = beer => {
+    console.log(beer, "<-- selected beer in Trade Modal");
+  };
+
   render() {
     return (
       <div>
@@ -49,6 +54,7 @@ class MatchesResults extends Component {
             createdByBeer={this.state.createdBy.cellarBeer}
             tradingPartnerBeer={this.state.tradingPartner.cellarBeer}
             show={this.state.tradeModal}
+            onCheckCurrentUser={this.onCheckCurrentUser}
           />
         </div>
         <div>
