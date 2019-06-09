@@ -3,10 +3,10 @@ import TradeModal from "../TradeModal/TradeModal";
 
 class MatchesResults extends Component {
   state = {
-    user1Beer: [],
-    user2Beer: [],
-    user1Address: "",
-    user2Address: "",
+    creatorBeer: [],
+    partnerBeer: [],
+    creatorAddress: "",
+    partnerAddress: "",
     createdBy: {},
     tradingPartner: {},
     isComplete: false,
@@ -41,13 +41,28 @@ class MatchesResults extends Component {
     });
   };
 
-  // Adds the user beers that they are offering to trade in the user1Beer array
+  // Adds the user beers that they are offering to trade in the creatorBeer array
   onCheckCurrentUser = beer => {
     console.log(beer, "<-- selected beer in Trade Modal");
+    let creatorBeer = this.state.creatorBeer;
+    creatorBeer.push(beer);
+    console.log(
+      this.state.creatorBeer,
+      "<-- this.state.creatorBeer after beer has been pushed"
+    );
+    this.setState({
+      creatorBeer: creatorBeer
+    });
   };
 
   onCheckTradingPartner = beer => {
     console.log(beer, "<-- selected trading partner beer in Trade Modal");
+    let partnerBeer = this.state.partnerBeer;
+    partnerBeer.push(beer)
+    console.log(this.state.partnerBeer, '<-- this.state.partnerBeer after beer has been pushed')
+    this.setState({
+      partnerBeer: partnerBeer
+    })
   };
 
   render() {
