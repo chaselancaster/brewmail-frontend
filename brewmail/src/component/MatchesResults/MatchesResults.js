@@ -46,6 +46,10 @@ class MatchesResults extends Component {
     console.log(beer, "<-- selected beer in Trade Modal");
   };
 
+  onCheckTradingPartner = beer => {
+    console.log(beer, "<-- selected trading partner beer in Trade Modal");
+  };
+
   render() {
     return (
       <div>
@@ -55,6 +59,7 @@ class MatchesResults extends Component {
             tradingPartnerBeer={this.state.tradingPartner.cellarBeer}
             show={this.state.tradeModal}
             onCheckCurrentUser={this.onCheckCurrentUser}
+            onCheckTradingPartner={this.onCheckTradingPartner}
           />
         </div>
         <div>
