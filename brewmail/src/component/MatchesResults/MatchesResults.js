@@ -79,6 +79,7 @@ class MatchesResults extends Component {
             show={this.state.tradeModal}
             onCheckCurrentUser={this.onCheckCurrentUser}
             onCheckTradingPartner={this.onCheckTradingPartner}
+            closeTradeModal={this.toggleTradeModal}
           />
         </div>
         <div>

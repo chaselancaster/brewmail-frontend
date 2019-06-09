@@ -70,7 +70,7 @@ class TradeModal extends Component {
               })}
               <button
               onClick={e => {
-                this.props.show(e);
+                this.props.closeTradeModal(e);
               }}
             >
               Close
