@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import TradeModal from '../TradeModal/TradeModal'
 
 class MatchesResults extends Component {
   state = {
@@ -35,6 +36,9 @@ class MatchesResults extends Component {
 
   render() {
     return (
+      <div>
+        <TradeModal />
+      </div>
       <div>
         <h1>This is the matches results component</h1>
         <div>
