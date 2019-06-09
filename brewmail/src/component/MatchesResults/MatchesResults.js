@@ -14,6 +14,12 @@ class MatchesResults extends Component {
     tradeModal: false
   };
 
+  // Create Trade 
+  // I will need to pass this state down to the backend
+  // I will also need to pass the currentUser._id and the tradingPartner._id
+  // I will need to find these users in the backend and push the trade into the proper array 
+  // I will then need to send a message back here to let the user know that the trade was created
+
   initiateTrade = partner => {
     console.log(partner, "<-- initial trade partner");
     this.toggleTradeModal();
