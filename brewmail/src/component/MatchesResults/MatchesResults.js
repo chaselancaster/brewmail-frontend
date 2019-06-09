@@ -27,7 +27,11 @@ class MatchesResults extends Component {
 
   toggleTradeModal = () => {
     this.setState({
-      tradeModal: !this.state.tradeModal
+      tradeModal: !this.state.tradeModal,
+      creatorBeer: [],
+      partnerBeer: [],
+      createdBy: {},
+      tradingPartner: {}
     });
   };
 

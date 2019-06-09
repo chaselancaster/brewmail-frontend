@@ -68,6 +68,13 @@ class TradeModal extends Component {
                   </li>
                 );
               })}
+              <button
+              onClick={e => {
+                this.props.show(e);
+              }}
+            >
+              Close
+            </button>
             </div>
           </div>
         </div>
