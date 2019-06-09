@@ -41,7 +41,7 @@ class TradeModal extends Component {
           <div style={footerStyle}>
             <div>
               <h2>Select beers from your list to trade</h2>
-              {this.props.createdBy.map((beer, i) => {
+              {this.props.createdByBeer.map((beer, i) => {
                 return (
                   <li key={i}>
                     <span>Beer Name: {beer.beerName}</span>

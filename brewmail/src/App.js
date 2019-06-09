@@ -83,9 +83,6 @@ class App extends Component {
   render() {
     return (
       <div>
-        <button type="submit" onClick={this.findUsersTradingBeer}>
-          Find Matches
-        </button>
         <NavBar
           currentUser={this.state.currentUser}
           doLogout={this.doLogout}
