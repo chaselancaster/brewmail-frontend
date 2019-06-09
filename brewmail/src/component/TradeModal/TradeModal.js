@@ -60,7 +60,10 @@ class TradeModal extends Component {
                   <li key={i}>
                     <form>
                       <span>Beer Name: {beer.beerName}</span>
-                      <input type="checkbox" />
+                      <input
+                        type="checkbox"
+                        onChange={() => this.props.onCheckTradingPartner(beer)}
+                      />
                     </form>
                   </li>
                 );
