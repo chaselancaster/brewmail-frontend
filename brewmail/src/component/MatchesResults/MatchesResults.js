@@ -9,7 +9,8 @@ class MatchesResults extends Component {
     createdBy: {},
     tradingPartner: {},
     isComplete: false,
-    message: ""
+    message: "",
+    tradeModal: false
   };
 
   initiateTrade = partner => {
@@ -19,6 +20,16 @@ class MatchesResults extends Component {
     this.setState({
       createdBy: currentUser,
       tradingPartner: partner
+    });
+  };
+
+  handleInputChange = e => {
+    const target = e.target;
+    const value = target.type === "checkbox" ? target.checked : target.value;
+    const name = target.name;
+
+    this.setState({
+      [name]: value
     });
   };
 
