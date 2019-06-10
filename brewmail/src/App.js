@@ -102,7 +102,17 @@ class App extends Component {
           searchBeer={this.searchBeer}
         />
         <Switch>
-          <Route exact path={routes.LANDING} render={() => <Landing />} />
+          <Route
+            exact
+            path={routes.LANDING}
+            render={() => (
+              <Landing
+                changeHandler={this.changeHandler}
+                search={this.state.search}
+                searchBeer={this.searchBeer}
+              />
+            )}
+          />
           <Route
             exact
             path={routes.REGISTER}
@@ -131,6 +141,7 @@ class App extends Component {
               <Cellar
                 userCellar={this.state.userCellar}
                 currentUser={this.state.currentUser}
+                doSetCurrentUser={this.doSetCurrentUser}
               />
             )}
           />

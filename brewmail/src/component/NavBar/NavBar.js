@@ -18,31 +18,31 @@ const NavBar = ({
         BrewMail
       </a>
       <div id="nav-mobile" class="right hide-on-med-and-down">
-        <NavLink exact to={routes.LANDING} className="NavLinkOption">
+        <NavLink exact to={routes.LANDING} className="navLinkOption">
           Home
         </NavLink>
 
-        <NavLink exact to={routes.CELLAR} className="NavLinkOption">
+        <NavLink exact to={routes.CELLAR} className="navLinkOption">
           Cellar
         </NavLink>
-        <NavLink exact to={routes.TRADES} className="NavLinkOption">
+        <NavLink exact to={routes.TRADES} className="navLinkOption">
           Trades
         </NavLink>
-        <NavLink exact to={routes.MATCHES} className="NavLinkOption">
+        <NavLink exact to={routes.MATCHES} className="navLinkOption">
           Matches
         </NavLink>
-        <NavLink className="NavLinkOption">Profile</NavLink>
+        <NavLink className="navLinkOption">Profile</NavLink>
         {currentUser ? (
           <span>
             <button
               onClick={doLogout}
-              className="waves-effect waves-light btn black"
+              className="waves-effect waves-light btn black navLinkOption"
             >
               Logout
             </button>
           </span>
         ) : (
-          <NavLink exact to={routes.LOGIN} className="NavLinkOption">
+          <NavLink exact to={routes.LOGIN} className="navLinkOption">
             <button className="waves-effect waves-light btn black">
               Login
             </button>
