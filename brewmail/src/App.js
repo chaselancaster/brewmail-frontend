@@ -23,7 +23,8 @@ class App extends Component {
     userCellar: [],
     userISO: [],
     usersTradingBeer: [],
-    matches: []
+    matches: [],
+    userTrades: []
   };
 
   changeHandler = e => {
@@ -37,7 +38,8 @@ class App extends Component {
       currentUser: user,
       logged: true,
       userCellar: user.cellarBeer,
-      userISO: user.isoBeer
+      userISO: user.isoBeer,
+      userTrades: user.trades
     });
   };
 
@@ -139,7 +141,7 @@ class App extends Component {
           <Route
             exact
             path={routes.TRADES}
-            render={() => <Trades currentUser={this.state.currentUser} />}
+            render={() => <Trades userTrades={this.state.userTrades} />}
           />
         </Switch>
       </div>
