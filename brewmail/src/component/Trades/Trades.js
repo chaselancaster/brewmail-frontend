@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 
 class Trades extends Component {
+  state = {
+    selectedTradeId: ""
+  };
+
   render() {
     return (
       <div>
