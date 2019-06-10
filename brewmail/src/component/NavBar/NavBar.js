@@ -26,6 +26,9 @@ const NavBar = ({
     <NavLink exact to={routes.CELLAR}>
       Cellar
     </NavLink>
+    <NavLink exact to={routes.TRADES}>
+      Trades
+    </NavLink>
     <NavLink exact to={routes.MATCHES}>
       Matches
     </NavLink>
