@@ -13,6 +13,7 @@ import Matches from "./component/Matches/Matches";
 import Trades from "./component/Trades/Trades";
 import TradeShow from "./component/TradeShow/TradeShow";
 import Profile from "./component/Profile/Profile";
+import EditUser from "./component/EditUser/EditUser";
 
 import * as routes from "./constants/routes";
 
