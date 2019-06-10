@@ -38,7 +38,6 @@ class ForTradeModal extends Component {
     return (
       <div style={backdropStyle}>
         <div style={modalStyle}>
-          <h2>Add Beer To For Trade</h2>
           <div style={footerStyle}>
             <form onSubmit={this.props.addBeer}>
               Quantity:{" "}

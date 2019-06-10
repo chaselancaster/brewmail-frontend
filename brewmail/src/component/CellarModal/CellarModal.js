@@ -15,7 +15,7 @@ const modalStyle = {
   backgroundColor: "white",
   borderRadius: 5,
   maxWidth: 500,
-  minHeight: 300,
+  height: 300,
   margin: "0 auto",
   padding: 30,
   position: "relative"
@@ -38,7 +38,6 @@ class CellarModal extends Component {
     return (
       <div style={backdropStyle}>
         <div style={modalStyle}>
-          <h2>Add Beer To Cellar</h2>
           <div style={footerStyle}>
             <form onSubmit={this.props.addBeer}>
               Quantity:{" "}

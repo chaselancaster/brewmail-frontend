@@ -11,7 +11,7 @@ class Cellar extends Component {
     );
     const parsedResponse = await deletedBeer.json();
     console.log(parsedResponse, "parsedResponse in deleteGame");
-    this.props.doSetCurrentUser(parsedResponse);
+    this.props.doSetCurrentUser(parsedResponse.user);
   };
 
   render() {

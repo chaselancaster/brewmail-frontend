@@ -189,6 +189,7 @@ class Search extends Component {
           addBeer={this.addBeerISO}
         />
         <div>
+          <h1>Search Results</h1>
           {this.props.searchResults.map((beer, i) => {
             return (
               <li key={i}>
