@@ -15,7 +15,7 @@ class Login extends Component {
     });
   };
 
-  // Login 
+  // Login
   handleLogin = async e => {
     try {
       e.preventDefault();
@@ -71,7 +71,12 @@ class Login extends Component {
                 onChange={this.changeHandler}
               />
               <br />
-              <button type="submit">Login</button>
+              <button
+                type="submit"
+                className="waves-effect waves-light btn black"
+              >
+                Login
+              </button>
             </form>
           </div>
         )}
