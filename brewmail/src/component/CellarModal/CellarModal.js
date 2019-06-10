@@ -15,7 +15,7 @@ const modalStyle = {
   backgroundColor: "white",
   borderRadius: 5,
   maxWidth: 500,
-  height: 500,
+  height: 300,
   margin: "0 auto",
   padding: 30,
   position: "relative"
@@ -61,7 +61,7 @@ class CellarModal extends Component {
                 onChange={this.props.handleInputChange}
               />
               <br />
-              Is this for trade?:{" "}
+              {/* Is this for trade?:
               <input
                 type="checkbox"
                 className="filled-in"
@@ -69,7 +69,7 @@ class CellarModal extends Component {
                 name="isForTrade"
                 checked="checked"
               />
-              <br />
+              <br /> */}
               <button type="submit">Add To Cellar</button>
             </form>
             <button

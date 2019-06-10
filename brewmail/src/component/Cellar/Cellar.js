@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 
+import "./Cellar.css";
 class Cellar extends Component {
   deleteBeer = async i => {
     console.log("deleteBeer function hit");
@@ -19,26 +20,43 @@ class Cellar extends Component {
       return <h1>Please Login to see Cellar!</h1>;
     }
     return (
-      <div>
-        <h1>Cellar List </h1>
+      <div className="cellarContainer">
+        <h1 className="cellarH1">Cellar List </h1>
         <div>
           {this.props.userCellar.map((beer, i) => {
             return (
-              <li key={i}>
-                <span>
+              <li key={i} className="card blue-grey darken-1 large cardSize">
+                <div className="beerLabel">
                   <img src={beer.label} />
-                </span>
+                </div>
                 <br />
-                <span>Name: {beer.beerName}</span>
+                <div className="beerInfo">
+                  <span className="card-content white-text">
+                    Name: {beer.beerName}
+                  </span>
+                  <br />
+                  <span className="card-content white-text">
+                    ABV: {beer.beerABV}%
+                  </span>
+                  <br />
+                  <span className="card-content white-text">
+                    Style: {beer.beerStyle}
+                  </span>
+                  <br />
+                  <span className="card-content white-text">
+                    Brewed by: {beer.breweryName}
+                  </span>
+                </div>
                 <br />
-                <span>ABV: {beer.beerABV}%</span>
-                <br />
-                <span>Style: {beer.beerStyle}</span>
-                <br />
-                <span>Brewed by: {beer.breweryName}</span>
-                <br />
-                <button onClick={() => this.deleteBeer(i)}>Remove Beer</button>
-                <button>Edit Beer</button>
+                <div className="btnContainer">
+                  <button
+                    className="waves-effect waves-light btn yellow darken-2"
+                    onClick={() => this.deleteBeer(i)}
+                  >
+                    Remove Beer
+                  </button>
+                  {/* <button>Edit Beer</button> */}
+                </div>
               </li>
             );
           })}

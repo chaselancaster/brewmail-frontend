@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import TradeModal from "../TradeModal/TradeModal";
 
+import "./MatchesResults.css";
+
 class MatchesResults extends Component {
   state = {
     creatorBeer: [],
@@ -125,23 +127,34 @@ class MatchesResults extends Component {
           />
         </div>
         <div>
-          <h1>This is the matches results component</h1>
-          <div>
+          <div className="matchesResultsContainer">
             {this.props.users.map((user, i) => {
               return (
-                <li key={i}>
-                  <br />
-                  <span>User: {user.username}</span>
-                  <br />
-                  <span>Cellar Count: {user.cellarBeer.length}</span>
-                  <br />
-                  {/* <span># of Beer For Trade: {user.ftBeer.length}</span> */}
-                  <br />
-                  <span># of Beer ISO: {user.isoBeer.length}</span>
-                  <br />
-                  <button onClick={() => this.initiateTrade(user)}>
-                    Initiate Trade
-                  </button>
+                <li key={i} className="card blue-grey darken-1 small cardSize">
+                  <div className="matchInfo">
+                    <span className="card-content white-text">
+                      User: {user.username}
+                    </span>
+                    <br />
+                    <span className="card-content white-text">
+                      Cellar Count: {user.cellarBeer.length}
+                    </span>
+                    <br />
+                    {/* <span># of Beer For Trade: {user.ftBeer.length}</span> */}
+
+                    <span className="card-content white-text">
+                      # of Beer ISO: {user.isoBeer.length}
+                    </span>
+                    <br />
+                  </div>
+                  <div className="btnContainer">
+                    <button
+                      className="waves-effect waves-light btn yellow darken-2"
+                      onClick={() => this.initiateTrade(user)}
+                    >
+                      Initiate Trade
+                    </button>
+                  </div>
                 </li>
               );
             })}

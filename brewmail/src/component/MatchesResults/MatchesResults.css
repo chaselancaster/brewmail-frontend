@@ -1,0 +1,11 @@
+.matchesResultsContainer {
+  display: flex;
+}
+
+.matchInfo {
+  display: flex;
+}
+
+.btnContainer {
+  display: flex;
+}
