@@ -7,3 +7,4 @@ export const MATCHES = "/matches";
 export const TRADES = "/trades";
 export const TRADESHOW = "/trade/show";
 export const PROFILE = "/profile";
+export const EDITUSER = "/edituser";
