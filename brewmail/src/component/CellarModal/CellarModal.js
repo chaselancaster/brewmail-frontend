@@ -64,6 +64,7 @@ class CellarModal extends Component {
               Is this for trade?:{" "}
               <input
                 type="checkbox"
+                className="filled-in"
                 onChange={this.props.handleInputChange}
                 name="isForTrade"
               />

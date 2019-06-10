@@ -3,18 +3,27 @@ import React, { Component } from "react";
 class EditUser extends Component {
   state = {
     username: "",
-    password: ""
+    password: "",
+    email: ""
   };
 
-  doGetUser = async () => {
+  updateUser = async e => {
     try {
-      const user = await fetch(`/users/profile`);
-      const parsedUser = await user.json();
-      console.log(
-        parsedUser,
-        "<-- parsedUser in doGetUser function in ShowUser.js"
+      e.preventDefault();
+      const userCall = await fetch(
+        `http://localhost:3001/user/update/${this.props.currentUser._id}`,
+        {
+          method: "PUT",
+          // credentials: "include",
+          body: JSON.stringify(this.state),
+          headers: {
+            "Content-Type": "application/json"
+          }
+        }
       );
-      return parsedUser;
+      console.log(userCall, "<-- userCall in updateUser function");
+      const response = await userCall.json();
+      console.log(response, "<-- response in updateUser function");
     } catch (err) {
       console.log(err);
     }
