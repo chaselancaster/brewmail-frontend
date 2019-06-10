@@ -7,6 +7,12 @@ class EditUser extends Component {
     email: ""
   };
 
+  changeHandler = e => {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  };
+
   updateUser = async e => {
     try {
       e.preventDefault();
