@@ -136,7 +136,11 @@ class App extends Component {
               />
             )}
           />
-          <Route exact path={routes.TRADES} render={() => <Trades />} />
+          <Route
+            exact
+            path={routes.TRADES}
+            render={() => <Trades currentUser={this.state.currentUser} />}
+          />
         </Switch>
       </div>
     );
