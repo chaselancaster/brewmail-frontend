@@ -161,7 +161,10 @@ class App extends Component {
             exact
             path={routes.TRADESHOW}
             render={() => (
-              <TradeShow selectedTrade={this.state.selectedTrade} />
+              <TradeShow
+                selectedTrade={this.state.selectedTrade}
+                currentUserId={this.state.currentUser._id}
+              />
             )}
           />
         </Switch>
