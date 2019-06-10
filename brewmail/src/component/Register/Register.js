@@ -56,7 +56,7 @@ class Register extends Component {
         {this.state.logged ? (
           <Redirect to={"/"} />
         ) : (
-          <div>
+          <div className="registerContainer">
             <h1 className="registerH1">
               You're one step closer to cracking a cold one.
             </h1>
@@ -93,7 +93,9 @@ class Register extends Component {
                 onChange={this.changeHandler}
               />
               <br />
-              <button type="submit">Register</button>
+              <div className="btnContainer">
+                <button type="submit">Register</button>
+              </div>
             </form>
           </div>
         )}

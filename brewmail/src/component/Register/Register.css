@@ -1,0 +1,15 @@
+.registerH1 {
+  text-align: center;
+}
+
+.registerContainer {
+  background-color: gray;
+  color: white;
+  padding-top: 20px;
+  padding-bottom: 100px;
+}
+
+.btnContainer {
+  display: flex;
+  justify-content: center;
+}

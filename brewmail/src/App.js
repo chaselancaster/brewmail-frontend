@@ -112,6 +112,7 @@ class App extends Component {
                 changeHandler={this.changeHandler}
                 search={this.state.search}
                 searchBeer={this.searchBeer}
+                logged={this.props.logged}
               />
             )}
           />

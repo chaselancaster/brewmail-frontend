@@ -23,12 +23,15 @@ class Landing extends Component {
           We help you find cool beer and the people trading it! Join today!
         </h4>
         <div className="btnContainer">
-          {" "}
-          <a href="/register">
-            <button className="waves-effect waves-light btn black registerBtn">
-              Register
-            </button>
-          </a>
+          {this.props.logged ? (
+            <p>Welcome back </p>
+          ) : (
+            <a href="/register">
+              <button className="waves-effect waves-light btn black registerBtn">
+                Register
+              </button>
+            </a>
+          )}
         </div>
       </div>
     );
