@@ -40,26 +40,30 @@ class EditUser extends Component {
       <div>
         <h1>User Edit Page</h1>
         <div>
-          <form onSubmit={this.submitEdit}>
+          <form onSubmit={this.updateUser}>
             <h3>Password: </h3>
+            <input
+              type="text"
+              name="username"
+              onChange={this.changeHandler}
+              value={this.props.currentUser.username}
+            />
             <input
               type="password"
               name="password"
-              onChange={this.props.changeHandler}
-              value={this.props.user.password}
+              onChange={this.changeHandler}
+              value={this.props.currentUser.password}
             />
             <br />
             <h3>Email: </h3>
             <input
               type="text"
               name="email"
-              onChange={this.props.changeHandler}
-              value={this.props.user.email}
+              onChange={this.changeHandler}
+              value={this.props.currentUser.email}
             />
             <br />
-            <button type="submit" className="updateBtn">
-              Update Account
-            </button>
+            <button type="submit">Update Account</button>
           </form>
         </div>
       </div>
