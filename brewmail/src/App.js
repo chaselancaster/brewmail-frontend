@@ -10,6 +10,7 @@ import NavBar from "./component/NavBar/NavBar";
 import Search from "./component/Search/Search";
 import Cellar from "./component/Cellar/Cellar";
 import Matches from "./component/Matches/Matches";
+import Trades from "./component/Trades/Trades";
 
 import * as routes from "./constants/routes";
 
@@ -131,9 +132,11 @@ class App extends Component {
                 userISO={this.state.userISO}
                 usersTradingBeer={this.state.usersTradingBeer}
                 currentUser={this.state.currentUser}
+                doSetCurrentUser={this.doSetCurrentUser}
               />
             )}
           />
+          <Route exact path={routes.TRADES} render={() => <Trades />} />
         </Switch>
       </div>
     );

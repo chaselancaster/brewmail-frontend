@@ -9,3 +9,5 @@ class Trades extends Component {
     );
   }
 }
+
+export default Trades;

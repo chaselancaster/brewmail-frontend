@@ -11,14 +11,45 @@ class MatchesResults extends Component {
     tradingPartner: {},
     isComplete: false,
     message: "",
+    id: "",
     tradeModal: false
   };
 
-  // Create Trade 
+  // Create Trade
   // I will need to pass this state down to the backend
   // I will also need to pass the currentUser._id and the tradingPartner._id
-  // I will need to find these users in the backend and push the trade into the proper array 
+  // I will need to find these users in the backend and push the trade into the proper array
   // I will then need to send a message back here to let the user know that the trade was created
+  createTrade = async e => {
+    try {
+      e.preventDefault();
+      const trade = await fetch(
+        `http://localhost:3001/trade/create/${this.state.createdBy._id}/${
+          this.state.tradingPartner._id
+        }`,
+        {
+          method: "POST",
+          // credentials: "include",
+          body: JSON.stringify(this.state),
+          headers: {
+            "Content-Type": "application/json"
+          }
+        }
+      );
+      const parsedResponse = await trade.json();
+      console.log(parsedResponse, "<-- parsedResponse in addBeer function");
+      if (parsedResponse.success) {
+        // calling function that is going to set user again with updated beer
+        this.props.doSetCurrentUser(parsedResponse.currentUser);
+        this.setState({
+          message: parsedResponse.message,
+          id: parsedResponse.id
+        });
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   initiateTrade = partner => {
     console.log(partner, "<-- initial trade partner");
@@ -68,11 +99,14 @@ class MatchesResults extends Component {
   onCheckTradingPartner = beer => {
     console.log(beer, "<-- selected trading partner beer in Trade Modal");
     let partnerBeer = this.state.partnerBeer;
-    partnerBeer.push(beer)
-    console.log(this.state.partnerBeer, '<-- this.state.partnerBeer after beer has been pushed')
+    partnerBeer.push(beer);
+    console.log(
+      this.state.partnerBeer,
+      "<-- this.state.partnerBeer after beer has been pushed"
+    );
     this.setState({
       partnerBeer: partnerBeer
-    })
+    });
   };
 
   render() {
@@ -86,6 +120,8 @@ class MatchesResults extends Component {
             onCheckCurrentUser={this.onCheckCurrentUser}
             onCheckTradingPartner={this.onCheckTradingPartner}
             closeTradeModal={this.toggleTradeModal}
+            createTrade={this.createTrade}
+            message={this.state.message}
           />
         </div>
         <div>

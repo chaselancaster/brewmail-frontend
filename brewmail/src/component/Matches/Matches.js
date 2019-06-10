@@ -59,6 +59,7 @@ class Matches extends Component {
         <MatchesResults
           users={this.state.users}
           currentUser={this.props.currentUser}
+          doSetCurrentUser={this.props.doSetCurrentUser}
         />
       </div>
     );
