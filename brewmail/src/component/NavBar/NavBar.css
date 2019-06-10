@@ -1,4 +1,10 @@
+@import url("https://fonts.googleapis.com/css?family=Spectral+SC&display=swap");
+
 /* NavBar Links */
 .navLinkOption {
   margin-right: 10px;
+}
+
+.navBarTitle {
+  font-family: "Spectral SC", serif;
 }
