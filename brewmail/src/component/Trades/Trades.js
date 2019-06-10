@@ -9,7 +9,11 @@ class Trades extends Component {
           {this.props.userTrades.map((trade, i) => {
             return (
               <li key={i}>
-                <span>Trade with: {trade.tradingPartner.username}</span>
+                {trade.createdBy._id === this.props.currentUserId ? (
+                  <span>Trade with: {trade.tradingPartner.username}</span>
+                ) : (
+                  <span>Trade with: {trade.createdBy.username}</span>
+                )}
               </li>
             );
           })}
