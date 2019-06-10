@@ -39,7 +39,9 @@ const NavBar = ({
           </NavLink>
         </li>
         <li>
-          <NavLink className="navLinkOption">Profile</NavLink>
+          <NavLink exact to={routes.PROFILE} className="navLinkOption">
+            Profile
+          </NavLink>
         </li>
         {currentUser ? (
           <li>

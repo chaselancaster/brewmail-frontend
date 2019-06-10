@@ -12,6 +12,7 @@ import Cellar from "./component/Cellar/Cellar";
 import Matches from "./component/Matches/Matches";
 import Trades from "./component/Trades/Trades";
 import TradeShow from "./component/TradeShow/TradeShow";
+import Profile from "./component/Profile/Profile";
 
 import * as routes from "./constants/routes";
 
@@ -177,6 +178,11 @@ class App extends Component {
                 currentUserId={this.state.currentUser._id}
               />
             )}
+          />
+          <Route
+            exact
+            path={routes.PROFILE}
+            render={() => <Profile currentUser={this.state.currentUser} />}
           />
         </Switch>
       </div>
