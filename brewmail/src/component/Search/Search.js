@@ -4,6 +4,8 @@ import CellarModal from "../CellarModal/CellarModal";
 import ForTradeModal from "../ForTradeModal/ForTradeModal";
 import ISOModal from "../ISOModal/ISOModal";
 
+import "./Search.css";
+
 class Search extends Component {
   state = {
     cellarModal: false,
@@ -192,27 +194,54 @@ class Search extends Component {
           <h1>Search Results</h1>
           {this.props.searchResults.map((beer, i) => {
             return (
-              <li key={i}>
-                <span>
-                  <img src={beer.beer.beer_label} />
-                </span>
-                <br />
-                <span>Name: {beer.beer.beer_name}</span>
-                <br />
-                <span>ABV: {beer.beer.beer_abv}%</span>
-                <br />
-                <span>Style: {beer.beer.beer_style}</span>
-                <br />
-                <span>Brewed by: {beer.brewery.brewery_name}</span>
-                <br />
-                <button onClick={() => this.showCellarModal(beer)}>
-                  + Cellar
-                </button>
-                <button onClick={() => this.showForTradeModal(beer)}>
-                  + FT
-                </button>
-                <button onClick={() => this.showISOModal(beer)}>+ ISO</button>
-              </li>
+              <div className="cardContainer">
+                <li className="card  blue-grey darken-1 large cardSize" key={i}>
+                  <div className="beerLabel">
+                    <img src={beer.beer.beer_label} />
+                  </div>
+                  <br />
+                  <div className="beerInfo">
+                    <span className="card-content white-text">
+                      Name: {beer.beer.beer_name}
+                    </span>
+                    <br />
+                    <span className="card-content white-text">
+                      ABV: {beer.beer.beer_abv}%
+                    </span>
+                    <br />
+                    <span className="card-content white-text">
+                      Style: {beer.beer.beer_style}
+                    </span>
+                    <br />
+                    <span className="card-content white-text">
+                      Brewed by: {beer.brewery.brewery_name}
+                    </span>
+                  </div>
+
+                  <br />
+                  <div className="beerBtns">
+                    {" "}
+                    <button
+                      className="waves-effect waves-light btn yellow darken-2"
+                      onClick={() => this.showCellarModal(beer)}
+                    >
+                      + Cellar
+                    </button>
+                    <button
+                      className="waves-effect waves-light btn yellow darken-2"
+                      onClick={() => this.showForTradeModal(beer)}
+                    >
+                      + FT
+                    </button>
+                    <button
+                      className="waves-effect waves-light btn yellow darken-2"
+                      onClick={() => this.showISOModal(beer)}
+                    >
+                      + ISO
+                    </button>
+                  </div>
+                </li>
+              </div>
             );
           })}
         </div>

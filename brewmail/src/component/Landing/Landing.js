@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 
+import "./Landing.css";
 class Landing extends Component {
   render() {
     return (
-      <div>
-        <h1>Welcome To Brewmail</h1>
+      <div className="landingContainer">
+        <h1 className="landingH1">Welcome To BrewMail</h1>
+        <h3 className="landingH3">Search below for a beer or brewery!</h3>
         <form onSubmit={this.props.searchBeer}>
           <div className="input-field">
             {" "}
@@ -17,6 +19,17 @@ class Landing extends Component {
             />
           </div>
         </form>
+        <h4 className="landingH4">
+          We help you find cool beer and the people trading it! Join today!
+        </h4>
+        <div className="btnContainer">
+          {" "}
+          <a href="/register">
+            <button className="waves-effect waves-light btn black registerBtn">
+              Register
+            </button>
+          </a>
+        </div>
       </div>
     );
   }

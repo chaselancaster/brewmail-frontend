@@ -15,7 +15,7 @@ const modalStyle = {
   backgroundColor: "white",
   borderRadius: 5,
   maxWidth: 500,
-  height: 300,
+  height: 500,
   margin: "0 auto",
   padding: 30,
   position: "relative"
@@ -67,6 +67,7 @@ class CellarModal extends Component {
                 className="filled-in"
                 onChange={this.props.handleInputChange}
                 name="isForTrade"
+                checked="checked"
               />
               <br />
               <button type="submit">Add To Cellar</button>

@@ -1,0 +1,24 @@
+.landingContainer {
+  background-color: gray;
+  padding-top: 50px;
+  padding-bottom: 500px;
+  color: white;
+}
+
+.landingH1 {
+  text-align: center;
+}
+
+.landingH3 {
+  text-align: center;
+}
+
+.landingH4 {
+  text-align: center;
+}
+
+.btnContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
