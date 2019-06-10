@@ -1,0 +1,15 @@
+.loginH1 {
+  text-align: center;
+}
+
+.loginContainer {
+  background-color: gray;
+  padding-top: 50px;
+  padding-bottom: 300px;
+  color: white;
+}
+
+.btnContainer {
+  display: flex;
+  justify-content: center;
+}

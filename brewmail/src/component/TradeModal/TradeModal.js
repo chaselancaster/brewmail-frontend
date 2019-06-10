@@ -40,7 +40,9 @@ class TradeModal extends Component {
         <div style={modalStyle}>
           <div style={footerStyle}>
             <div>
-              <h2>Select beers from your list to trade!</h2>
+              <div>
+                <div>{this.props.message}</div>
+              </div>
               {this.props.createdByBeer.map((beer, i) => {
                 return (
                   <li key={i}>
@@ -54,7 +56,6 @@ class TradeModal extends Component {
                   </li>
                 );
               })}
-              <h2>Select you trade partner's beer that you want!</h2>
               {this.props.tradingPartnerBeer.map((beer, i) => {
                 return (
                   <li key={i}>
@@ -68,13 +69,14 @@ class TradeModal extends Component {
                   </li>
                 );
               })}
+              <button onClick={this.props.createTrade}>Create Trade</button>
               <button
-              onClick={e => {
-                this.props.closeTradeModal(e);
-              }}
-            >
-              Close
-            </button>
+                onClick={e => {
+                  this.props.closeTradeModal(e);
+                }}
+              >
+                Close
+              </button>
             </div>
           </div>
         </div>

@@ -1,0 +1,40 @@
+/* Adjusting size of card */
+.cardSize {
+  width: 400px;
+  list-style: none;
+}
+
+/* Parent container for beer cards */
+.cardContainer {
+  display: flex;
+  /* justify-content: center; */
+}
+
+.beerLabel {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  /* width: 100px;
+  height: 100px; */
+}
+
+.beerInfo {
+  display: flex;
+  margin-top: 30px;
+}
+
+.beerBtns {
+  display: flex;
+  justify-content: space-around;
+  /* margin-top: */
+}
+
+.searchH1 {
+  text-align: center;
+}
+
+.searchContainer {
+  background-color: gray;
+  padding-top: 20px;
+  color: white;
+}

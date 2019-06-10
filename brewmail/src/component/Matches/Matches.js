@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 import MatchesResults from "../MatchesResults/MatchesResults";
 
+import "./Matches.css";
 class Matches extends Component {
   state = {
     search: "",
@@ -45,8 +46,10 @@ class Matches extends Component {
     console.log(this.props.userISO, "<-- this.props.userISO");
     console.log(this.props.usersTradingBeer, "<-- this.props.usersTradingBeer");
     return (
-      <div>
-        <h1>This is the matches page</h1>
+      <div className="matchesContainer">
+        <h1 className="matchesH1">
+          Search for a beer you want, we will find who has it!
+        </h1>
         <form onSubmit={this.findUsersTradingBeer}>
           <input
             type="text"
@@ -59,6 +62,7 @@ class Matches extends Component {
         <MatchesResults
           users={this.state.users}
           currentUser={this.props.currentUser}
+          doSetCurrentUser={this.props.doSetCurrentUser}
         />
       </div>
     );

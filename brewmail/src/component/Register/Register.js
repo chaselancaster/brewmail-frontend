@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 
+import "./Register.css";
 class Register extends Component {
   state = {
     username: "",
@@ -55,8 +56,10 @@ class Register extends Component {
         {this.state.logged ? (
           <Redirect to={"/"} />
         ) : (
-          <div>
-            <h1>This is the Register page</h1>
+          <div className="registerContainer">
+            <h1 className="registerH1">
+              You're one step closer to cracking a cold one.
+            </h1>
             <form onSubmit={e => this.handleRegister(e)}>
               <h4>Username</h4>
               <input
@@ -90,7 +93,9 @@ class Register extends Component {
                 onChange={this.changeHandler}
               />
               <br />
-              <button type="submit">Register</button>
+              <div className="btnContainer">
+                <button type="submit">Register</button>
+              </div>
             </form>
           </div>
         )}

@@ -10,6 +10,10 @@ import NavBar from "./component/NavBar/NavBar";
 import Search from "./component/Search/Search";
 import Cellar from "./component/Cellar/Cellar";
 import Matches from "./component/Matches/Matches";
+import Trades from "./component/Trades/Trades";
+import TradeShow from "./component/TradeShow/TradeShow";
+import Profile from "./component/Profile/Profile";
+import EditUser from "./component/EditUser/EditUser";
 
 import * as routes from "./constants/routes";
 
@@ -22,7 +26,9 @@ class App extends Component {
     userCellar: [],
     userISO: [],
     usersTradingBeer: [],
-    matches: []
+    matches: [],
+    userTrades: [],
+    selectedTrade: {}
   };
 
   changeHandler = e => {
@@ -31,12 +37,19 @@ class App extends Component {
     });
   };
 
+  setSelectedTrade = trade => {
+    this.setState({
+      selectedTrade: trade
+    });
+  };
+
   doSetCurrentUser = user => {
     this.setState({
       currentUser: user,
       logged: true,
       userCellar: user.cellarBeer,
-      userISO: user.isoBeer
+      userISO: user.isoBeer,
+      userTrades: user.trades
     });
   };
 
@@ -91,7 +104,18 @@ class App extends Component {
           searchBeer={this.searchBeer}
         />
         <Switch>
-          <Route exact path={routes.LANDING} render={() => <Landing />} />
+          <Route
+            exact
+            path={routes.LANDING}
+            render={() => (
+              <Landing
+                changeHandler={this.changeHandler}
+                search={this.state.search}
+                searchBeer={this.searchBeer}
+                logged={this.props.logged}
+              />
+            )}
+          />
           <Route
             exact
             path={routes.REGISTER}
@@ -120,6 +144,7 @@ class App extends Component {
               <Cellar
                 userCellar={this.state.userCellar}
                 currentUser={this.state.currentUser}
+                doSetCurrentUser={this.doSetCurrentUser}
               />
             )}
           />
@@ -131,8 +156,40 @@ class App extends Component {
                 userISO={this.state.userISO}
                 usersTradingBeer={this.state.usersTradingBeer}
                 currentUser={this.state.currentUser}
+                doSetCurrentUser={this.doSetCurrentUser}
               />
             )}
+          />
+          <Route
+            exact
+            path={routes.TRADES}
+            render={() => (
+              <Trades
+                userTrades={this.state.userTrades}
+                currentUserId={this.state.currentUser._id}
+                setSelectedTrade={this.setSelectedTrade}
+              />
+            )}
+          />
+          <Route
+            exact
+            path={routes.TRADESHOW}
+            render={() => (
+              <TradeShow
+                selectedTrade={this.state.selectedTrade}
+                currentUserId={this.state.currentUser._id}
+              />
+            )}
+          />
+          <Route
+            exact
+            path={routes.PROFILE}
+            render={() => <Profile currentUser={this.state.currentUser} />}
+          />
+          <Route
+            exact
+            path={routes.EDITUSER}
+            render={() => <EditUser currentUser={this.state.currentUser} />}
           />
         </Switch>
       </div>

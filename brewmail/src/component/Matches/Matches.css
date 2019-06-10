@@ -1,0 +1,10 @@
+.matchesH1 {
+  text-align: center;
+}
+
+.matchesContainer {
+  background-color: gray;
+  padding-top: 20px;
+  padding-bottom: 500px;
+  color: white;
+}
