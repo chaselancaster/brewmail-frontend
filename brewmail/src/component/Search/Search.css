@@ -28,3 +28,13 @@
   justify-content: space-around;
   /* margin-top: */
 }
+
+.searchH1 {
+  text-align: center;
+}
+
+.searchContainer {
+  background-color: gray;
+  padding-top: 20px;
+  color: white;
+}

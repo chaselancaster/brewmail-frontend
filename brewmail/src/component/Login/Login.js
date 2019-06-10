@@ -53,8 +53,8 @@ class Login extends Component {
         {this.state.logged ? (
           <Redirect to={"/"} />
         ) : (
-          <div>
-            <h1>This is the Login page</h1>
+          <div className="loginContainer">
+            <h1 className="loginH1">Welcome Back</h1>
             <form onSubmit={e => this.handleLogin(e)}>
               <h4>Username</h4>
               <input
@@ -72,12 +72,14 @@ class Login extends Component {
                 onChange={this.changeHandler}
               />
               <br />
-              <button
-                type="submit"
-                className="waves-effect waves-light btn black"
-              >
-                Login
-              </button>
+              <div className="btnContainer">
+                <button
+                  type="submit"
+                  className="waves-effect waves-light btn black"
+                >
+                  Login
+                </button>
+              </div>
             </form>
           </div>
         )}

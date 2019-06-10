@@ -190,8 +190,8 @@ class Search extends Component {
           handleInputChange={this.handleInputChange}
           addBeer={this.addBeerISO}
         />
-        <div>
-          <h1>Search Results</h1>
+        <div className="searchContainer">
+          <h1 className="searchH1">Search Results</h1>
           {this.props.searchResults.map((beer, i) => {
             return (
               <div className="cardContainer">
