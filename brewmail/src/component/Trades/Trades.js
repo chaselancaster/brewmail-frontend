@@ -23,7 +23,7 @@ class Trades extends Component {
   viewTrade = trade => {
     console.log(trade, "<-- selected trade");
     this.props.setSelectedTrade(trade);
-    this.setRedirect();
+    // this.setRedirect();
     // this.renderRedirect();
   };
 
