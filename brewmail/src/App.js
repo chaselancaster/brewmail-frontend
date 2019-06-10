@@ -11,6 +11,7 @@ import Search from "./component/Search/Search";
 import Cellar from "./component/Cellar/Cellar";
 import Matches from "./component/Matches/Matches";
 import Trades from "./component/Trades/Trades";
+import TradeShow from "./component/TradeShow/TradeShow";
 
 import * as routes from "./constants/routes";
 
@@ -24,12 +25,19 @@ class App extends Component {
     userISO: [],
     usersTradingBeer: [],
     matches: [],
-    userTrades: []
+    userTrades: [],
+    selectedTrade: {}
   };
 
   changeHandler = e => {
     this.setState({
       [e.target.name]: e.target.value
+    });
+  };
+
+  setSelectedTrade = trade => {
+    this.setState({
+      selectedTrade: trade
     });
   };
 
@@ -145,7 +153,15 @@ class App extends Component {
               <Trades
                 userTrades={this.state.userTrades}
                 currentUserId={this.state.currentUser._id}
+                setSelectedTrade={this.setSelectedTrade}
               />
+            )}
+          />
+          <Route
+            exact
+            path={routes.TRADESHOW}
+            render={() => (
+              <TradeShow selectedTrade={this.state.selectedTrade} />
             )}
           />
         </Switch>
