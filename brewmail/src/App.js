@@ -185,6 +185,11 @@ class App extends Component {
             path={routes.PROFILE}
             render={() => <Profile currentUser={this.state.currentUser} />}
           />
+          <Route
+            exact
+            path={routes.EDITUSER}
+            render={() => <EditUser currentUser={this.state.currentUser} />}
+          />
         </Switch>
       </div>
     );
