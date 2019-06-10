@@ -2,6 +2,8 @@ import React, { Component } from "react";
 
 import { Redirect } from "react-router-dom";
 
+import "./Profile.css";
+
 class Profile extends Component {
   state = {
     username: "",
@@ -38,30 +40,43 @@ class Profile extends Component {
   };
   render() {
     return (
-      <div>
-        <h1>Profile</h1>
-        <h2>Hello {this.props.currentUser.username}</h2>
-        <div>
+      <div className="profileContainer">
+        <div className="profileHeader">
+          <h1 className="profileH1">Profile</h1>
+          <h4 className="profileH4">Hello {this.props.currentUser.username}</h4>
+        </div>
+
+        <div className="isoBeerContainer">
           <h3>Beers you are searching for</h3>
           {this.props.currentUser.isoBeer.map((beer, i) => {
             return (
-              <li key={i}>
-                <span>
+              <li className="card  blue-grey darken-1 medium cardSize" key={i}>
+                <div className="beerLabel">
                   <img src={beer.label} />
-                </span>
+                </div>
                 <br />
-                <span>Name: {beer.beerName}</span>
-                <br />
-                <span>ABV: {beer.beerABV}%</span>
-                <br />
-                <span>Style: {beer.beerStyle}</span>
-                <br />
-                <span>Brewed by: {beer.breweryName}</span>
+                <div className="beerInfo">
+                  <span className="card-content white-text">
+                    Name: {beer.beerName}
+                  </span>
+                  <br />
+                  <span className="card-content white-text">
+                    ABV: {beer.beerABV}%
+                  </span>
+                  <br />
+                  <span className="card-content white-text">
+                    Style: {beer.beerStyle}
+                  </span>
+                  <br />
+                  <span className="card-content white-text">
+                    Brewed by: {beer.breweryName}
+                  </span>
+                </div>
               </li>
             );
           })}
         </div>
-        <div>
+        <div className="editAccountContainer">
           <h3>Edit Account</h3>
           <div>
             <form onSubmit={this.updateUser}>
@@ -88,7 +103,14 @@ class Profile extends Component {
                 // value={this.props.currentUser.email}
               />
               <br />
-              <button type="submit">Update Account</button>
+              <div className="btnContainer">
+                <button
+                  className="waves-effect waves-light btn yellow darken-2"
+                  type="submit"
+                >
+                  Update Account
+                </button>
+              </div>
             </form>
           </div>
         </div>

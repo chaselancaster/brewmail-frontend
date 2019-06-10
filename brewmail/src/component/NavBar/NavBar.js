@@ -14,7 +14,7 @@ const NavBar = ({
 }) => (
   <nav>
     <div className="nav-wrapper yellow darken-2">
-      <a href="#" class="brand-logo">
+      <a href="#" class="brand-logo navBarTitle">
         BrewMail
       </a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">

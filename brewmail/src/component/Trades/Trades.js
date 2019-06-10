@@ -32,7 +32,7 @@ class Trades extends Component {
       <Redirect to={"/trade/show"} />
     ) : (
       <div>
-        <h1>Here are your trades</h1>
+        <h1>COMING SOON</h1>
         <div>
           {this.props.userTrades.map((trade, i) => {
             return (

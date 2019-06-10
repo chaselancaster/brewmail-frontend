@@ -1,0 +1,38 @@
+.profileH1 {
+  text-align: center;
+}
+
+.profileH4 {
+  text-align: center;
+}
+
+.isoBeerContainer {
+  padding-top: 20px;
+  background-color: gray;
+  padding-bottom: 40px;
+  border-bottom: 3px solid black;
+}
+
+.profileContainer {
+  color: white;
+}
+
+.profileHeader {
+  padding-top: 20px;
+  background-color: black;
+  padding-bottom: 20px;
+}
+
+.beerLabel {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  /* width: 100px;
+    height: 100px; */
+}
+
+.editAccountContainer {
+  padding-top: 50px;
+  background-color: gray;
+  padding-bottom: 50px;
+}
