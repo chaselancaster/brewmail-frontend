@@ -17,38 +17,51 @@ const NavBar = ({
       <a href="#" class="brand-logo">
         BrewMail
       </a>
-      <div id="nav-mobile" class="right hide-on-med-and-down">
-        <NavLink exact to={routes.LANDING} className="navLinkOption">
-          Home
-        </NavLink>
-
-        <NavLink exact to={routes.CELLAR} className="navLinkOption">
-          Cellar
-        </NavLink>
-        <NavLink exact to={routes.TRADES} className="navLinkOption">
-          Trades
-        </NavLink>
-        <NavLink exact to={routes.MATCHES} className="navLinkOption">
-          Matches
-        </NavLink>
-        <NavLink className="navLinkOption">Profile</NavLink>
-        {currentUser ? (
-          <span>
-            <button
-              onClick={doLogout}
-              className="waves-effect waves-light btn black navLinkOption"
-            >
-              Logout
-            </button>
-          </span>
-        ) : (
-          <NavLink exact to={routes.LOGIN} className="navLinkOption">
-            <button className="waves-effect waves-light btn black">
-              Login
-            </button>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li>
+          <NavLink exact to={routes.LANDING} className="navLinkOption">
+            Home
           </NavLink>
+        </li>
+        <li>
+          <NavLink exact to={routes.CELLAR} className="navLinkOption">
+            Cellar
+          </NavLink>
+        </li>
+        <li>
+          <NavLink exact to={routes.TRADES} className="navLinkOption">
+            Trades
+          </NavLink>
+        </li>
+        <li>
+          <NavLink exact to={routes.MATCHES} className="navLinkOption">
+            Matches
+          </NavLink>
+        </li>
+        <li>
+          <NavLink className="navLinkOption">Profile</NavLink>
+        </li>
+        {currentUser ? (
+          <li>
+            <span>
+              <button
+                onClick={doLogout}
+                className="waves-effect waves-light btn black navLinkOption"
+              >
+                Logout
+              </button>
+            </span>
+          </li>
+        ) : (
+          <li>
+            <NavLink exact to={routes.LOGIN} className="navLinkOption">
+              <button className="waves-effect waves-light btn black">
+                Login
+              </button>
+            </NavLink>
+          </li>
         )}
-      </div>
+      </ul>
     </div>
   </nav>
 );
